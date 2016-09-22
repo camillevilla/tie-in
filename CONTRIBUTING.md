@@ -27,11 +27,12 @@ The project will use the following styleguides
 
 ## Testing
 - Travis CI
+- rspec-rails
+- factory_girl
+- shoulda_matchers
+- capybara
 
 
 ## Deployment and QA
 - deploy to Heroku [sitelink](this will be a link to the site)
-- add bugs to Trello and prioritize
-
-
-
+- add bugs or GitHub issue tracker and add priority labels
