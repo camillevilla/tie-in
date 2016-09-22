@@ -1,6 +1,12 @@
 # Tie-In
 an app for coordinating group travel plans
 
+## Contributors
+- [Nicholas Davidson](https://github.com/ndavidsonsf)
+- [David Ross](https://github.com/rustyross101)
+- [Jeff Roy](https://github.com/jeffreyroy)
+- [Camille Villa](https://github.com/camillevilla)
+
 ## User Stories
 
 ### MVP
