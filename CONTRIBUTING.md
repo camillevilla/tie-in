@@ -3,7 +3,7 @@ an app to eliminate all the logistic hassle of group travel
 
 ## Basic Git Flow
 1. Pull to update your local master
-- Work in a feature branch ([initials]-[name of feature])
+- Work in a feature branch (e.g. feature-[name of feature], feature-user-auth)
 - Your work should happen in a series of small and concise commit messages.
 - Rebase frequently to incorporate upstream changes on development
 - Continuously push your branch to github.
