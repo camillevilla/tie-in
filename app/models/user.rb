@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :created_events, foreign_key: "creator_id", class_name: "Event"
   has_many :sent_event_invitations, foreign_key: "sender_id", class_name: "EventInvitation"
   has_many :received_event_invitations, foreign_key: "recipient_id", class_name: "EventInvitation"
+  has_many :sent_trip_invitations, foreign_key: "sender_id", class_name: "TripInvitation"
+  has_many :received_trip_invitations, foreign_key: "recipient_id", class_name: "TripInvitation"
 end

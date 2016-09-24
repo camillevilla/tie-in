@@ -15,5 +15,6 @@ RSpec.describe Event, type: :model do
   describe "associations" do
     it {should belong_to(:creator).class_name('User')}
     it {should have_many(:event_invitations)}
+    it {should belong_to(:trip)}
   end
 end
