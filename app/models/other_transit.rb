@@ -1,0 +1,2 @@
+class OtherTransit < ApplicationRecord
+end

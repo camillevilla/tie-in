@@ -1,0 +1,2 @@
+class EventInvitation < ApplicationRecord
+end
