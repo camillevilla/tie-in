@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: https://schemadesigner.devbootcamp.com/ -->
+<!-- Active URL: http://schemadesigner.devbootcamp.com/ -->
 <sql>
 <datatypes db="mysql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -52,7 +52,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="991" y="256" name="trips">
+<table x="1209" y="327" name="trips">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="816" y="490" name="trips_users">
+<table x="840" y="605" name="trips_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -99,7 +99,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_trip" null="1" autoincrement="0">
+<row name="trip_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="trips" row="id" />
 </row>
@@ -175,7 +175,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1134" y="444" name="transit">
+<table x="1174" y="600" name="transit">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -208,7 +208,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1364" y="475" name="flight">
+<table x="1530" y="636" name="flight">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -216,7 +216,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1362" y="563" name="other">
+<table x="1440" y="717" name="other">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -224,11 +224,11 @@
 <part>id</part>
 </key>
 </table>
-<table x="1132" y="83" name="accommodations">
+<table x="1572" y="172" name="accommodations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
+<row name="creator_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
@@ -245,6 +245,22 @@
 <row name="check_out" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1178" y="85" name="accommodations_users">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="accommodation_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="accommodations" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

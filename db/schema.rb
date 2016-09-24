@@ -10,19 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923181506) do
+ActiveRecord::Schema.define(version: 20160924230705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accommodations", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "creator_id"
     t.integer  "trip_id"
     t.string   "location"
     t.datetime "check_in"
     t.datetime "check_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "accommodations_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "accommodation_id"
   end
 
   create_table "event_invitations", force: :cascade do |t|
@@ -52,13 +57,6 @@ ActiveRecord::Schema.define(version: 20160923181506) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "invitations_trips", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
-    t.integer "trip_id"
-    t.boolean "accepted"
-  end
-
   create_table "other_transits", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160923181506) do
   create_table "trip_invitations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.integer  "event_id"
+    t.integer  "trip_id"
     t.boolean  "accepted"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

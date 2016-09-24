@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :accommodation do
-    user_id 1
+    creator_id 1
     trip_id 1
     location "MyString"
     check_in "2016-09-23 11:01:47"
