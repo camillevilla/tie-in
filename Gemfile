@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Gem to enable cross origin resource sharing
+gem 'rack-cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -37,6 +39,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
+  # Faker to test database
+  gem 'faker'
 end
 
 group :development do
