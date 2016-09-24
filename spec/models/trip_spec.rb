@@ -9,4 +9,9 @@ RSpec.describe Trip, type: :model do
     it { should have_db_column(:end_date) }
     it { should have_db_column(:location) }
   end
+
+  describe "associations" do
+    it {should belong_to(:creator).class_name('User')}
+    it {should have_and_belong_to_many(:users)}
+  end
 end

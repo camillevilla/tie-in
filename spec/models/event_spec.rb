@@ -11,4 +11,9 @@ RSpec.describe Event, type: :model do
     it { should have_db_column(:location) }
     it { should have_db_column(:private) }
   end
+
+  describe "associations" do
+    it {should belong_to(:creator).class_name('User')}
+    it {should have_many(:event_invitations)}
+  end
 end
