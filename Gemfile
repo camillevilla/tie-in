@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Gem to enable cross origin resource sharing
 gem 'rack-cors'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,7 +41,6 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
   # Faker to test database
-  gem 'faker'
 end
 
 group :development do
