@@ -52,7 +52,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1209" y="327" name="trips">
+<table x="1212" y="317" name="trips">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="840" y="605" name="trips_users">
+<table x="625" y="604" name="trips_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -175,7 +175,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1174" y="600" name="transit">
+<table x="1193" y="556" name="transit">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -208,7 +208,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1530" y="636" name="flight">
+<table x="1460" y="580" name="flight">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -260,6 +260,22 @@
 <row name="accommodation_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="accommodations" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="884" y="685" name="transits_users">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="transit_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="transit" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
