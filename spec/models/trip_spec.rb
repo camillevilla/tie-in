@@ -16,5 +16,6 @@ RSpec.describe Trip, type: :model do
     it {should have_many(:trip_invitations)}
     it {should have_many(:events)}
     it {should have_many(:accommodations)}
+    it {should have_many(:transits)}
   end
 end
