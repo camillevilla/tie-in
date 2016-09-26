@@ -3,9 +3,13 @@ class TripsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
+    @user = User.find(params[:id])
+    p user
     @trips = Trip.all
+    # Return only trips that include this user
+    @user_trips = @trips.select { |trip| trip.users.include?(@user) }
 
-    @json = @trips.map do |trip|
+    @json = @user_trips.map do |trip|
       {
         id: trip.id,
         name: trip.name,
