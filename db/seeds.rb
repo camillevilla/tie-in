@@ -48,7 +48,7 @@ end
     start_time: Faker::Date.between(DateTime.now - 1, DateTime.now),
     end_time: Faker::Date.between(DateTime.now, DateTime.now + 1),
     location: Faker::Address.city,
-    private: false
+    privacy: false
 
   )
 end
