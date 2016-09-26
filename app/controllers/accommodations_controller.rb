@@ -8,8 +8,8 @@ class AccommodationsController < ApplicationController
         creator_id: accommodation.creator_id,
         trip_id: accommodation.trip_id,
         location: accommodation.location,
-        check_in: accommodation.check_in,
-        check_out: accommodation.check_out
+        check_in: pretty_date(accommodation.check_in),
+        check_out: pretty_date(accommodation.check_out)
       }
     end
     render :json => @json
