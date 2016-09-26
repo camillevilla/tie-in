@@ -13,6 +13,7 @@ end
 User.destroy_all
 Trip.destroy_all
 Event.destroy_all
+Accommodation.destroy_all
 
 10.times do
   User.create(
@@ -54,9 +55,22 @@ end
 end
 
 @friendships = Friendship.all
- 
+
   Friendship.create(
     user_id: 1,
     friend_id: 10
     )
+
+
+@accommodations = Accommodation.all
+
+10. times do
+  Accommodation.create(
+    creator_id: @users.sample.id,
+    trip_id: @trips.sample.id,
+    location: ["Holiday-Inn", "The Ritz-Carlton", "Rented Airbnb", "Motel 6"].sample,
+    check_in: Faker::Date.between(2.days.ago, Date.today),
+    check_out: Faker::Date.between(Date.today, 2.days.from_now)
+  )
+end
 
