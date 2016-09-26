@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get '/users' => "users#index"
 
 # Enable nested routes, e.g. /trips/1/accommodations
@@ -11,12 +10,7 @@ Rails.application.routes.draw do
   resources :accommodations
   resources :transits
   resources :events
-
-
-  get 'welcome/index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'welcome/index'
+  resources :users
 
   root 'welcome#index'
 end
