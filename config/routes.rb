@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
   get '/users' => "users#index"
+
+# This was all added by Nick -- not sure if this works
+  resources :trips do
+    resources :accommodations, :transit, :events
+  end
 
 
   get 'welcome/index'
