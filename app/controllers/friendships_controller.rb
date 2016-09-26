@@ -1,5 +1,5 @@
-class FriendsController < ApplicationController
-	def index
+class FriendshipsController < ApplicationController
+		def index
 		@friends = User.find(params[:id]).friends
 
 		@json = @friends.map do |friend|
@@ -13,4 +13,3 @@ class FriendsController < ApplicationController
     render :json => @json
   end
 end
-
