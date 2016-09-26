@@ -33,7 +33,10 @@ RSpec.describe User, type: :model do
     end
 
     describe "friends" do
-        it { should have_and_belong_to_many(:friends).class_name('User').with_foreign_key('user_id').join_table('friends') }
+        it { should have_many(:friendships) }
+        it { should have_many(:friends).through(:friendships) }
+        it { should have_many(:inverse_friendships).class_name('Friendship').with_foreign_key('friend_id') }
+        it { should have_many(:inverse_friends).through(:inverse_friendships).source(:user) }
     end
 
   end
