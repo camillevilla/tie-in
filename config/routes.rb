@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'trips' => "trips#index"
+
+  get 'trips/show'
+
   get '/users' => "users#index"
 
+  post '/trips' => "trips#create"
 
   get 'welcome/index'
 
