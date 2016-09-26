@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/users' => "users#index"
+  get '/users/:id/friends' => "friends#index"
 
 
   get 'welcome/index'
