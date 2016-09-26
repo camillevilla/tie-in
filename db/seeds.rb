@@ -52,3 +52,11 @@ end
 
   )
 end
+
+@friendships = Friendship.all
+ 
+  Friendship.create(
+    user_id: 1,
+    friend_id: 10
+    )
+
