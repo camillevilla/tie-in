@@ -4,10 +4,11 @@ class TripsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    p user
+    p @user
     @trips = Trip.all
     # Return only trips that include this user
-    @user_trips = @trips.select { |trip| trip.users.include?(@user) }
+    # @user_trips = @trips.select { |trip| trip.users.include?(@user) }
+    @user_trips = @user.trips
 
     @json = @user_trips.map do |trip|
       {
@@ -36,7 +37,11 @@ class TripsController < ApplicationController
       )
 
     @newTrip.creator_id = @current_user.id
+
     if @newTrip.save
+      # Automatically make user a member of her own trip
+      @newTrip.users << @current_user
+      @current_user.trips << @newTrip
       render :json =>
       {
         status: "ok",
