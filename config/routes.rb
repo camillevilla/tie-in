@@ -2,10 +2,15 @@ Rails.application.routes.draw do
 
   get '/users' => "users#index"
 
-# This was all added by Nick -- not sure if this works
+# Enable nested routes, e.g. /trips/1/accommodations
   resources :trips do
-    resources :accommodations, :transit, :events
+    resources :accommodations, :transits, :events
   end
+
+  # e
+  resources :accommodations
+  resources :transits
+  resources :events
 
 
   get 'welcome/index'
