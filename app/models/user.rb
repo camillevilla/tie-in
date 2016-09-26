@@ -20,6 +20,10 @@ class User < ApplicationRecord
 
   # friends
   has_and_belongs_to_many :friends, join_table: :friends, class_name: "User", foreign_key: "user_id", association_foreign_key: "other_user_id"
+  def add_friend(user)
+    self.friends << user
+    user.friends << self
+  end
 
 
 end
