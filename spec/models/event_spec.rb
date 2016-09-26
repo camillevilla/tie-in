@@ -9,7 +9,7 @@ RSpec.describe Event, type: :model do
     it { should have_db_column(:start_time) }
     it { should have_db_column(:end_time) }
     it { should have_db_column(:location) }
-    it { should have_db_column(:private) }
+    it { should have_db_column(:privacy) }
   end
 
   describe "associations" do
