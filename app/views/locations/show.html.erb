@@ -1,0 +1,10 @@
+<h1> Location: <%= @location.name %></h1>
+
+<p><%= @location.street_address_1 %></p>
+<p><%= @location.street_address_2 %></p>
+<p><%= @location.city %></p>
+<p><%= @location.state %></p>
+<p><%= @location.zipcode %></p>
+
+<button><%= link_to 'Edit Location', edit_location_path(@location) %></button>
+<button><%= link_to 'New Location', new_location_path(@location) %></button>
