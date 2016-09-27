@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   # skip_before_filter  :verify_authenticity_token
 
   def index
-    @user = User.find(params[:id])
+    @user = current_user || User.first
     @user_trips = @user.trips
   end
 
