@@ -1,10 +1,15 @@
 class TripsController < ApplicationController
   helper ApplicationHelper
-  skip_before_filter  :verify_authenticity_token
+  # skip_before_filter  :verify_authenticity_token
 
   def index
     @user = User.find(params[:id])
     @user_trips = @user.trips
+  end
+
+  def new
+    @user = current_user
+    @trip = Trip.new
   end
 
   def show

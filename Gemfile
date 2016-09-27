@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Gem to enable cross origin resource sharing
-gem 'rack-cors'
+# gem 'rack-cors'
 gem 'faker'
 
 # Use Capistrano for deployment

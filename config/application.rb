@@ -25,13 +25,13 @@ module TieIn
 
     # Enable Cross-Origin Resource Sharing (CORS)
     # Taken from spa-badge-challenge
-    config.api_only = true
-    config.middleware.insert_before 0, 'Rack::Cors' do
-      allow do
-          origins '*'
-          resource '*', headers: :any, methods: [:get, :put, :delete, :options, :patch, :head]
-      end
-    end
+    # config.api_only = true
+    # config.middleware.insert_before 0, 'Rack::Cors' do
+    #   allow do
+    #       origins '*'
+    #       resource '*', headers: :any, methods: [:get, :put, :delete, :options, :patch, :head]
+    #   end
+    # end
   end
 end
 

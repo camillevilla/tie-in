@@ -1,0 +1,20 @@
+<h1>Add new trip for <%= @user.first_name %></h1>
+
+<%= form_for @trip do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %>
+  <%= f.label :location %>:
+  <%= f.text_field :location %>
+  <div>
+    <%= f.label :description %>:
+    <%= f.text_area(:description, cols: 80, rows: 10) %>
+
+
+  </div>
+  <label>Start date:  </label>
+  <input type="datetime-local" />
+  <label>End date:  </label>
+  <input type="datetime-local" />
+  <div><button type="submit">Submit</button></div>
+<% end %>
+
