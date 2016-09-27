@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
+      get "users/:user_id/trips/:id" => "user#trip"
   get "users/:id/trips" => "trips#index"
 
   # get "trips/new" => "trips#new"
