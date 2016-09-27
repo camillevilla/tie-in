@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   resources :accommodations
   resources :transits
   resources :events
-  resources :users
+  resources :users do 
+    resources :friendships
+  end
 
   root 'welcome#index'
 end
