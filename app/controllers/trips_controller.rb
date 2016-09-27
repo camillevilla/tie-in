@@ -3,17 +3,18 @@ class TripsController < ApplicationController
   # skip_before_filter  :verify_authenticity_token
 
   def index
-    @user = User.first
+    @user = User.find(params[:id])
     @user_trips = @user.trips
   end
 
   def new
-    @user = User.first
+    @user = current_user
     @trip = Trip.new
   end
 
   def create
-    @user = User.first
+    p trip_params
+    @user = current_user
     @trip = Trip.new(trip_params)
     @trip.creator_id = @user.id
     if @trip.save
@@ -26,7 +27,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @user = User.first
+    @user = current_user
     @trip = Trip.find(params[:id])
   end
 
@@ -53,6 +54,6 @@ class TripsController < ApplicationController
 
   private
   def trip_params
-    params.require(:trip).permit(:name, :location, :description, :start_date, :end_date)
+    params.require(:trip).permit(:name, :location_id, :description, :start_date, :end_date)
   end
 end
