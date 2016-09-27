@@ -14,6 +14,7 @@ User.destroy_all
 Trip.destroy_all
 Event.destroy_all
 Accommodation.destroy_all
+Location.destroy_all
 
 10.times do
   User.create(
@@ -26,6 +27,19 @@ end
 
 @users = User.all
 
+5.times do
+  Location.create(
+    name: Faker::Company.name,
+    street_address_1: Faker::Address.street_address,
+    street_address_2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zipcode: Faker::Address.zip,
+    )
+end
+
+@locations = Location.all
+
 10.times do
   Trip.create(
     creator_id: @users.sample.id,
@@ -33,7 +47,7 @@ end
     description: Faker::Hipster.paragraph,
     start_date: Faker::Date.between(2.days.ago, Date.today),
     end_date: Faker::Date.between(Date.today, 2.days.from_now),
-    location: Faker::Address.city
+    location_id: @locations.sample.id,
 
   )
 end
@@ -48,29 +62,28 @@ end
     description: Faker::Hipster.paragraph,
     start_time: Faker::Date.between(DateTime.now - 1, DateTime.now),
     end_time: Faker::Date.between(DateTime.now, DateTime.now + 1),
-    location: Faker::Address.city,
+    location_id: @locations.sample.id,
     privacy: false
 
   )
 end
-
-@friendships = Friendship.all
 
   Friendship.create(
     user_id: 1,
     friend_id: 10
     )
 
-
-@accommodations = Accommodation.all
+@friendships = Friendship.all
 
 10. times do
   Accommodation.create(
     creator_id: @users.sample.id,
     trip_id: @trips.sample.id,
-    location: ["Holiday-Inn", "The Ritz-Carlton", "Rented Airbnb", "Motel 6"].sample,
+    location_id: @locations.sample.id,
     check_in: Faker::Date.between(2.days.ago, Date.today),
     check_out: Faker::Date.between(Date.today, 2.days.from_now)
   )
 end
+
+@accommodations = Accommodation.all
 

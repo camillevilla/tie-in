@@ -2,21 +2,23 @@
 <html>
   <head>
     <title>Tie-In</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-brand">
           <%= link_to "Tie-In", root_path %>
         </div>
         <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Account", edit_user_registration_path %></li>
+          <li><%= link_to "New Trip", new_trip_path %></li>
+          <li><%= link_to "My Trips", user_trips_path(current_user) %>
+          <li><%= link_to "Settings", edit_user_registration_path %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         </ul>
         <% else %>

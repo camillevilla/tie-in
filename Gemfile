@@ -27,10 +27,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Gem to enable cross origin resource sharing
-# gem 'rack-cors'
+# Used to seed deployed database
 gem 'faker'
+# Gem to handle user authentication
 gem 'devise'
+# Gem used for styling
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+# Gem used as an alternative to the standard IRB Ruby shell.
+gem 'pry-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
