@@ -20,11 +20,11 @@ module TieIn
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+     # Do not swallow errors in after_commit/after_rollback callbacks.
+    # config.active_record.raise_in_transactional_callbacks = true
 
-    # Enable Cross-Origin Resource Sharing (CORS)
-    # Taken from spa-badge-challenge
+    # # Enable Cross-Origin Resource Sharing (CORS)
+    # # Taken from spa-badge-challenge
     # config.api_only = true
     # config.middleware.insert_before 0, 'Rack::Cors' do
     #   allow do
