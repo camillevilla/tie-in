@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Gem to enable cross origin resource sharing
 # gem 'rack-cors'
 gem 'faker'
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
