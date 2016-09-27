@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :transits
   resources :events
   resources :users
+  resources :locations
 
   root 'welcome#index'
 end
