@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     it { should have_db_column(:first_name) }
     it { should have_db_column(:last_name) }
     it { should have_db_column(:email) }
-    it { should have_db_column(:password) }
+    it { should have_db_column(:encrypted_password) }
   end
 
   describe "associations" do
