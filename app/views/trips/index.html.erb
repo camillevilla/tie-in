@@ -1,0 +1,9 @@
+<h1><%= @user.first_name %>'s Trips</h1>
+
+<ul>
+  <% @user_trips.each do |trip| %>
+    <li>
+      <a href="/trips/<%=trip.id%>"><%= trip.name %></a>
+    </li>
+  <% end %>
+</ul>

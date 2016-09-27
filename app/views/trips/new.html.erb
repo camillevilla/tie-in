@@ -1,0 +1,27 @@
+<h1>Add new trip for <%= @user.first_name %></h1>
+
+<% if @errors %>
+  <%= p @errors %>
+<% end %>
+
+<%= form_for @trip do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %>
+  <div>
+    <%= f.label :description %>: <br>
+    <%= f.text_area(:description, cols: 80, rows: 10) %>
+  </div>
+  <%= f.label :start_date %>:
+  <%= f.datetime_local_field :start_date %>
+  <%= f.label :end_date %>:
+  <%= f.datetime_local_field :end_date %>
+  <div>
+    <!-- Add partial form for new location once location table is ready -->
+    <%= f.label :location %>:
+    <%= f.text_field :location %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+
