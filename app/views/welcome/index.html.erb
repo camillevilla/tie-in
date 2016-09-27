@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="jumbotron text-center">
   <h2>Future home of <i>Tie-In</i>!</h2>
   <p>an app that removes the logistic hassle from group travel</p>
+  <% if current_user %>
+  <a href="users/<%=current_user.id%>/trips">My trips</a>
+<% end %>
 </div>

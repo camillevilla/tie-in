@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: https://schemadesigner.devbootcamp.com/ -->
+<!-- Active URL: http://schemadesigner.devbootcamp.com/ -->
 <sql>
 <datatypes db="mysql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -32,7 +32,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="687" y="331" name="users">
+</datatypes><table x="241" y="271" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -52,7 +52,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1212" y="317" name="trips">
+<table x="514" y="683" name="trips">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -72,14 +72,15 @@
 <row name="end_date" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
+<row name="location_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="locations" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="625" y="604" name="trips_users">
+<table x="265" y="619" name="trips_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -95,7 +96,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="375" y="223" name="events">
+<table x="749" y="55" name="events">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -119,9 +120,10 @@
 <row name="end_time" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
+<row name="location_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="locations" row="id" />
+</row>
 <row name="privacy" null="1" autoincrement="0">
 <datatype>BINARY</datatype>
 <default>NULL</default></row>
@@ -129,7 +131,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="476" y="46" name="event_invitations">
+<table x="436" y="30" name="event_invitations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -152,7 +154,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="808" y="63" name="trip_invitations">
+<table x="488" y="483" name="trip_invitations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -175,7 +177,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1193" y="556" name="transit">
+<table x="861" y="680" name="transit">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -224,7 +226,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1572" y="172" name="accommodations">
+<table x="1260" y="350" name="accommodations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -236,9 +238,10 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="trips" row="id" />
 </row>
-<row name="location" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
+<row name="location_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="locations" row="id" />
+</row>
 <row name="check_in" null="1" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>NULL</default></row>
@@ -249,7 +252,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1178" y="85" name="accommodations_users">
+<table x="1214" y="84" name="accommodations_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -265,7 +268,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="884" y="685" name="transits_users">
+<table x="861" y="494" name="transits_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -281,7 +284,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="408" y="498" name="friends">
+<table x="254" y="77" name="friends">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -293,6 +296,32 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="997" y="193" name="locations">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="street_address_1" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="street_address_2" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="city" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="state" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="zipcode" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

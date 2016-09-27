@@ -2,7 +2,7 @@
 <h2>Overview</h2>
 <div>
   <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%><br>
-  <%=@trip.location%>
+  <%=@trip.location.name%>
 </div>
 <div>
   <a href="/trips/<%= @trip.id %>/edit">Edit</a>
