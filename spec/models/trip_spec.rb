@@ -7,7 +7,7 @@ RSpec.describe Trip, type: :model do
     it { should have_db_column(:description) }
     it { should have_db_column(:start_date) }
     it { should have_db_column(:end_date) }
-    it { should have_db_column(:location) }
+    it { should have_db_column(:location_id) }
   end
 
   describe "associations" do
@@ -17,5 +17,6 @@ RSpec.describe Trip, type: :model do
     it {should have_many(:events)}
     it {should have_many(:accommodations)}
     it {should have_many(:transits)}
+    it {should belong_to(:location)}
   end
 end
