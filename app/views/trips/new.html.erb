@@ -1,5 +1,5 @@
-<h1>Add new trip for <%= @user.first_name %></h1>
-
+<h1>Add new trip</h1>
+<h2>Tell us more about your trip</h2>
 <% if @errors %>
   <%= p @errors %>
 <% end %>
@@ -21,7 +21,7 @@
     <%= f.text_field :location %>
   </div>
   <div>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Next:  Add friends" %>
   </div>
 <% end %>
 

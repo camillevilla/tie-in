@@ -1,5 +1,22 @@
 <h1><%= @trip.name %></h1>
+<h2>Overview</h2>
 <p><%=@trip.description%></p>
-<p>Location:  <%=@trip.location%></p>
-<p>Start date:  <%=pretty_date(@trip.start_date)%></p>
-<p>End date:  <%=pretty_date(@trip.end_date)%></p>
+<div>
+  <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%><br>
+  <%=@trip.location%>
+</div>
+<div>
+  <a href="trips/<%= @trip.id %>/edit">Edit</a>
+</div>
+<div>
+  <%=@trip.description%>
+</div>
+<h2>Attendees</h2>
+<ul>
+  <% @trip.users.each do |user| %>
+    <li>
+      <a href="users/<%=user.id%>"><%=user.first_name%></a>
+
+    </li>
+  <% end %>
+</ul>
