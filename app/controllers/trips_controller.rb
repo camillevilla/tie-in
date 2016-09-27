@@ -8,16 +8,16 @@ class TripsController < ApplicationController
   end
 
   def new
-    @user = current_user
+    @user = current_user || User.first
     @trip = Trip.new
   end
 
   def create
-    @user = current_user
+    @user = current_user || User.first
     @trip = Trip.new(trip_params)
     @trip.creator_id = @user.id
     if @trip.save
-      @trip.users << current_user
+      @trip.users << @user
       redirect_to @trip
     else
       @errors = @trip.errors.full_messages
