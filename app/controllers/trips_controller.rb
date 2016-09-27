@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   helper ApplicationHelper
-  skip_before_filter  :verify_authenticity_token
+  # skip_before_filter  :verify_authenticity_token
 
   def index
     @user = User.find(params[:id])
