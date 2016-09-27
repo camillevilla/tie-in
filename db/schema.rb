@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20160927010502) do
   create_table "accommodations", force: :cascade do |t|
     t.integer  "creator_id"
     t.integer  "trip_id"
-    t.string   "location"
+    t.integer  "location_id"
     t.datetime "check_in"
     t.datetime "check_out"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "accommodations_users", force: :cascade do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160927010502) do
     t.text     "description"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string   "location"
+    t.integer  "location_id"
     t.boolean  "privacy"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20160927010502) do
     t.integer  "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "other_transits", force: :cascade do |t|
@@ -99,7 +110,7 @@ ActiveRecord::Schema.define(version: 20160927010502) do
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "location"
+    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
