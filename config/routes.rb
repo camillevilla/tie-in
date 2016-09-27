@@ -5,12 +5,13 @@ Rails.application.routes.draw do
       }
   get "users/:id/trips" => "trips#index"
 
+
   # get "trips/new" => "trips#new"
 
   # resources :users do
   #   resources :trips, shallow: true
   # end
-
+  get '/users/:id/friendships/new' => "friendships#new"
   get '/users/:id/friendships' => "friendships#index"
   resources :friendships
 

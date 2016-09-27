@@ -1,10 +1,19 @@
 <h1><%= @user.first_name %>'s Friends</h1>
 
 <ul>
- <% @user_friends.each do |friend| %>
+<% @user_friends.each do |friend| %>
 	<li>
-		<a href="<%= friend.first_name %>
+  	<button type="submit" name="submit_param" action="/friendships" class="link-button">
+    	<%= friend.first_name %>
+  	</button>
 	</li>
 <% end %>
 </ul>
+
+
+<form method="post" action="/friendships">
+  <input type="text" name="friend_id" placeholder="Friend ID">
+  <input type="submit" value="Add Friend">
+</form>
+
 
