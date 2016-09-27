@@ -5,6 +5,6 @@ FactoryGirl.define do
     description "MyText"
     start_date "2016-09-23 10:54:34"
     end_date "2016-09-23 10:54:34"
-    location "MyString"
+    location_id 1
   end
 end

@@ -3,7 +3,7 @@ class CreateAccommodations < ActiveRecord::Migration[5.0]
     create_table :accommodations do |t|
       t.integer :creator_id
       t.integer :trip_id
-      t.string :location
+      t.integer :location_id
       t.datetime :check_in
       t.datetime :check_out
 
