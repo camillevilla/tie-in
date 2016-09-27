@@ -29,6 +29,27 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    if @trip.update(trip_params)
+      redirect_to @trip
+    else
+      @errors = @trip.errors.full_messages
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @trip = Trip.find(params[:id])
+    # Do we need confirmation of some sort?
+    @trip.destroy
+    redirect_to trips_path
+  end
+
   private
   def trip_params
     params.require(:trip).permit(:name, :location, :description, :start_date, :end_date)
