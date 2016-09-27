@@ -1,7 +1,6 @@
 class CreateLocations < ActiveRecord::Migration[5.0]
   def change
     create_table :locations do |t|
-      t.integer :trip_id
       t.string :name
       t.string :street_address_1
       t.string :street_address_2
@@ -13,3 +12,4 @@ class CreateLocations < ActiveRecord::Migration[5.0]
     end
   end
 end
+

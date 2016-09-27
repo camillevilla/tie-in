@@ -6,7 +6,7 @@ FactoryGirl.define do
     description "MyText"
     start_time "2016-09-23 10:52:45"
     end_time "2016-09-23 10:52:45"
-    location "MyString"
-    private false
+    location_id 1
+    privacy false
   end
 end

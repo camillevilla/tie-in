@@ -5,4 +5,5 @@ class Trip < ApplicationRecord
   has_many :events
   has_many :accommodations
   has_many :transits
+  belongs_to :location
 end
