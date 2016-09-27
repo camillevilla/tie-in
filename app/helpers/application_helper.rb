@@ -1,11 +1,14 @@
 module ApplicationHelper
   include DeviseHelper
-  # Current user
-  # Until we have user authentication, just pick first user
 
+  # Long date format, including time
   def pretty_date(date)
-    date.strftime("%m-%d-%y, %I:%M%p")
-    # replace month integer with month string later
+    date.strftime("%B %d, %Y, %l:%M%P")
+  end
+
+  # Short date format
+  def short_date(date)
+    date.strftime("%m/%y")
   end
 
 end
