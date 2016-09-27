@@ -4,26 +4,11 @@ class TripsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    p @user
-    @trips = Trip.all
-    # Return only trips that include this user
-    # @user_trips = @trips.select { |trip| trip.users.include?(@user) }
     @user_trips = @user.trips
-
-    @json = @user_trips.map do |trip|
-      {
-        id: trip.id,
-        name: trip.name,
-        description: trip.description,
-        location: trip.location,
-        start_date: trip.start_date,
-        end_date: trip.end_date
-      }
-    end
-    render :json => @json
   end
 
   def show
+    @trip = Trip.find(params[:id])
   end
 
   def create
