@@ -3,17 +3,17 @@ class TripsController < ApplicationController
   # skip_before_filter  :verify_authenticity_token
 
   def index
-    @user = current_user || User.first
+    @user = User.first
     @user_trips = @user.trips
   end
 
   def new
-    @user = current_user || User.first
+    @user = User.first
     @trip = Trip.new
   end
 
   def create
-    @user = current_user || User.first
+    @user = User.first
     @trip = Trip.new(trip_params)
     @trip.creator_id = @user.id
     if @trip.save
@@ -26,6 +26,7 @@ class TripsController < ApplicationController
   end
 
   def show
+    @user = User.first
     @trip = Trip.find(params[:id])
   end
 
