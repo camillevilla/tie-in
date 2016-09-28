@@ -1,17 +1,18 @@
-<h1>Your Trips</h1>
+<div class="container">
+  <div class="container">
+    <h1>Your Trips</h1>
+    <h3>Welcome, <%= @user.first_name %>!</h3>
+  </div>
+  <div id="trips" class="container transitions-enabled">
+      <% @user_trips.each do |trip| %>
+        <li>
+          <a href="/trips/<%=trip.id%>"><%= trip.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <a href="/trips/new">Add a New Trip</a>
+  </div>
+</div>
 
-<div>
-  <p>Welcome, <%= @user.first_name %>!</p>
-</div>
-<div>
-  <ul>
-    <% @user_trips.each do |trip| %>
-      <li>
-        <a href="/trips/<%=trip.id%>"><%= trip.name %></a>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div>
-  <a href="/trips/new">Add a New Trip</a>
-</div>
