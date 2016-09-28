@@ -15,7 +15,7 @@
   <ul>
     <% @trip.users.each do |user| %>
       <li>
-        <a href="/users/<%=user.id%>"><%=user.first_name%></a>
+        <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
       </li>
     <% end %>
     <% if @trip.creator_id == @user.id %>
@@ -25,11 +25,11 @@
     <% end %>
   </ul>
   <% if !@trip.users.include?(@user) %>
-    <a href="fill-in-this-url">Join this trip</a>
+    <a href="/trips/<%=@trip.id%>/join">Join this trip</a>
   <% end %>
 </div>
 <div>
-  <table>
+  <table>`
     <tr>
       <td><a href="fill-in-this-url">Timeline</a></td>
       <td>who's arriving when?<br>Add your travel information</td>

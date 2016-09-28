@@ -31,8 +31,11 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
-  def user
-
+  def join
+    @user = current_user
+    @trip = Trip.find(params[:id])
+    @trip.users << @user
+    redirect_to trip_path
   end
 
   def edit

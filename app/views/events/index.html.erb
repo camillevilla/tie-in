@@ -5,11 +5,11 @@
   <ul>
     <% @trip.events.each do |event| %>
       <li>
-        <a href="trips/<%=@trip.id%>/events/<%=event.id%>"><%= event.name %></a>
+        <a href="/trips/<%=@trip.id%>/events/<%=event.id%>"><%= event.name %></a>
       </li>
     <% end %>
   </ul>
 </div>
 <div>
-  <a href="trips/<%=@trip.id%>/events/new">Add an Event</a>
+  <a href="/trips/<%=@trip.id%>/events/new">Add an Event</a>
 </div>

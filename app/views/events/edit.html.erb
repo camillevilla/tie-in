@@ -1,5 +1,5 @@
-<h1><%=@trip.name%></h1>
-<h2>Add new event</h2>
+<h1>Edit event</h1>
+<h2>Revise the details of your event</h2>
 <% if @errors %>
   <ul>
   <% @errors.each do |error| %>
@@ -8,7 +8,7 @@
   </ul>
 <% end %>
 
-<%= form_for [@trip, @event] do |f| %>
+<%= form_for(@event, url: trip_event_path(@trip)) do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %>
   <div>
@@ -25,7 +25,6 @@
     <%= f.number_field :location_id %>
   </div>
   <div>
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
-
