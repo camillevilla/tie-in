@@ -1,0 +1,36 @@
+<h2>Edit Location: <%= @location.name %></h2>
+ <%= form_for(@location) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :street_address_1 %><br>
+    <%= f.text_field :street_address_1 %>
+  </p>
+
+  <p>
+    <%= f.label :street_address_2 %><br>
+    <%= f.text_field :street_address_2 %>
+  </p>
+
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <%= f.label :zipcode %><br>
+    <%= f.text_field :zipcode %>
+  </p>
+
+  <p>
+    <%= f.submit "Update Location"%><br>
+  </p>
+ <% end %>
