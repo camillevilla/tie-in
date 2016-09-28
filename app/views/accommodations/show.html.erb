@@ -1,0 +1,25 @@
+<h1>Accommodation: <p><%= @location.name %></p></h1>
+
+<h3>Attendees</h3>
+  <% if @accommodation.users.length > 0 %>
+    <% @accommodation.users.each do |attendee| %>
+      <li><%= attendee.first_name %><%= attendee.last_name %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h3>Address</h3>
+<p><%= @location.street_address_1 %></p>
+<p><%= @location.street_address_2 %></p>
+<p><%= @location.city %></p>
+<p><%= @location.state %></p>
+<p><%= @location.zipcode %></p>
+
+<h3>Reservation</h3>
+<p><%= @accommodation.check_in %> to <%= @accommodation.check_out %></p>
+
+<button><%= link_to "Back: All Accommodations", trip_accommodations_path(@trip) %></button>
+<%if @accommodation.creator_id == current_user.id %>
+  <button><%= link_to "Edit", trip_accommodation_path(@trip,@accommodation) %></button>
+  <!-- add Delete button later -->
+<% end %>

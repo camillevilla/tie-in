@@ -1,2 +1,10 @@
 <h1>New Location</h1>
-<%= render "locations/new" %>
+<div>
+  <form id="new-location-form" method="POST" action="/locations">
+    <%= render "locations/new"%>
+    <p>
+    <button type="submit">Submit</button>
+  </p>
+  </form>
+</div>
+

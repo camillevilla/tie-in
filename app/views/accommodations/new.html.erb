@@ -1,0 +1,9 @@
+<h1>Add a New Accommodation to <%= @trip.name %></h1>
+<div>
+  <form id="new-accommodation-form" method="POST" action="/trips/<%=@trip.id %>/accommodations">
+   <%= render "locations/new"%>
+    <p><input type="datetime-local" name="accommodation[check_in]"></p>
+    <p><input type="datetime-local" name="accommodation[check_out]"></p>
+    <button type="submit">Submit</button>
+  </form>
+</div>
