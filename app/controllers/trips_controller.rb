@@ -31,6 +31,12 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def timeline
+    @trip = Trip.find(params[:id])
+    @events = @trip.events
+    @users = @trip.users
+  end
+
   def join
     @user = current_user
     @trip = Trip.find(params[:id])
