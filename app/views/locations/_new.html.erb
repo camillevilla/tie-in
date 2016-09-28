@@ -1,37 +1,6 @@
-<div>
-<%= form_for @location, url: {action: "create"} do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :street_address_1 %><br>
-    <%= f.text_field :street_address_1 %>
-  </p>
-
-  <p>
-    <%= f.label :street_address_2 %><br>
-    <%= f.text_field :street_address_2 %>
-  </p>
-
-  <p>
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </p>
-
-  <p>
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </p>
-
-  <p>
-    <%= f.label :zipcode %><br>
-    <%= f.text_field :zipcode %>
-  </p>
-
-  <p>
-    <%= f.submit "Add Location"%><br>
-  </p>
-<% end %>
-</div>
+  <p><input type="text" name="location[name]" value="Name"></p>
+  <p><input type="text" name="location[street_address_1]" value="Street Address"></p>
+  <p><input type="text" name="location[street_address_2]" value="Secondary Address"></p>
+  <p><input type="text" name="location[city]" value="City"></p>
+  <p><input type="text" name="location[state]" value="State"></p>
+  <p><input type="text" name="location[zipcode]" value="Zipcode"></p>
