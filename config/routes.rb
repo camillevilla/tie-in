@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
+  get "users/:user_id/trips/:id" => "users#trip"
   get "users/:id/trips" => "trips#index"
+
+
+
+  get "trips/:id/join" => "trips#join"
+  get "trips/:trip_id/events/:id/join" => "events#join"
 
 
   # get "trips/new" => "trips#new"
@@ -22,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :accommodations
   resources :transits
+
   resources :events
   resources :users do 
     resources :friendships, :trips

@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
     		redirect_to "users/:id/friendships"
   		else 
   			@errors = @friendship.errors.full_messages
-  			render 'new'
+  			render 'index'
   		end
   	end
 end
