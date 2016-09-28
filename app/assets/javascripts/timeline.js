@@ -17,6 +17,7 @@ window.onload = function() {
   function timelineHover() {
     var chart = d3.timeline()
       .width(width*2)
+      .itemHeight(30)
       .stack()
       .margin({left:70, right:30, top:0, bottom:0})
       .hover(function (d, i, datum) {
@@ -31,13 +32,16 @@ window.onload = function() {
       .click(function (d, i, datum) {
         console.log(datum.label);
         alert(datum.label + ": " + d.label);
+      })
+      .scroll(function (x, scale) {
+        $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
       });
-      // .scroll(function (x, scale) {
-      //   $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
-      // });
 
-    var svg = d3.select("#timeline3").append("svg").attr("width", width)
-      .datum(labelTestData).call(chart);
+    var svg = d3.select("#timeline3")
+      .append("svg")
+      .attr("width", width)
+      .datum(labelTestData)
+      .call(chart);
   }
 
   timelineHover();
