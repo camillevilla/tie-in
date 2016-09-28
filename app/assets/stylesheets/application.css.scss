@@ -20,6 +20,13 @@
 
 body {
   background: #ffffff;
+  a {
+    text-decoration: none;
+    &:hover {
+      color: #39bdd2;
+      text-decoration: none;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,6 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand {
   color: #39bdd2;
+  font-weight: bold;
 }
 
 nav {

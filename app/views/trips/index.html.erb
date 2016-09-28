@@ -1,23 +1,23 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Welcome, <%= @user.first_name %>!</h1>
-    <h3>Your Trips</h3>
+    <h3 class="brand">Your Trips</h3>
   </div>
   <div class="container">
     <div class="transitions-enabled" id="pins">
-        <% @user_trips.each do |trip| %>
-        <div class="box panel panel-default">
-          <div class="panel-body">
-            <%= link_to (trip.name), trip %>
-          </div>
+      <% @user_trips.each do |trip| %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+          <%= link_to (trip.name), trip %>
         </div>
-
-        <% end %>
-
+      </div>
+      <% end %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+        <a href="/trips/new"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> add a new trip</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div>
-    <a href="/trips/new">Add a New Trip</a>
   </div>
 </div>
 

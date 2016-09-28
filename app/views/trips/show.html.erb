@@ -1,48 +1,52 @@
-<div><h1><%= @trip.name %></h1>
-<h2>Overview</h2>
-<div>
-  <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%><br>
-  <%=@trip.location.name%>
-</div>
-<div>
-  <a href="/trips/<%= @trip.id %>/edit">Edit</a>
-</div>
-<div>
-  <%=@trip.description%>
-</div>
-<div>
-  <h2>Attendees</h2>
-  <ul>
-    <% @trip.users.each do |user| %>
-      <li>
-        <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
-      </li>
-    <% end %>
-    <% if @trip.creator_id == @user.id %>
-      <li>
-        <a href="fill-in-this-url">Invite a friend</a>
-      </li>
-    <% end %>
-  </ul>
-  <% if !@trip.users.include?(@user) %>
-    <a href="/trips/<%=@trip.id%>/join">Join this trip</a>
-  <% end %>
-</div>
-<div>
-  <table>`
-    <tr>
-      <td><a href="fill-in-this-url">Timeline</a></td>
-      <td>who's arriving when?<br>Add your travel information</td>
-    </tr>
-    <tr>
-      <td><a href="fill-in-this-url">Map</a></td>
-      <td>where's everyone staying?</td>
-    </tr>
-    <tr>
-      <td><a href="/trips/<%=@trip.id%>/events">Events</a></td>
-      <td>what's going on?</td>
-    </tr>
+<div class="container">
+  <div class="jumbotron">
+    <h1><%= @trip.name %></h1>
+  </div>
+  <div class="container">
+    <h2>Trip Overview</h2>
+    dates: <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%><br>
+    location: <%=@trip.location.name%>
+  </div>
 
-  </table>
-</div>
+  <div>
+    <a href="/trips/<%= @trip.id %>/edit">Edit</a>
+  </div>
+  <div>
+    <%=@trip.description%>
+  </div>
+  <div>
+    <h2>Attendees</h2>
+    <ul>
+      <% @trip.users.each do |user| %>
+        <li>
+          <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
+        </li>
+      <% end %>
+      <% if @trip.creator_id == @user.id %>
+        <li>
+          <a href="fill-in-this-url">Invite a friend</a>
+        </li>
+      <% end %>
+    </ul>
+    <% if !@trip.users.include?(@user) %>
+      <a href="/trips/<%=@trip.id%>/join">Join this trip</a>
+    <% end %>
+  </div>
+  <div>
+    <table>`
+      <tr>
+        <td><a href="fill-in-this-url">Timeline</a></td>
+        <td>who's arriving when?<br>Add your travel information</td>
+      </tr>
+      <tr>
+        <td><a href="fill-in-this-url">Map</a></td>
+        <td>where's everyone staying?</td>
+      </tr>
+      <tr>
+        <td><a href="/trips/<%=@trip.id%>/events">Events</a></td>
+        <td>what's going on?</td>
+      </tr>
+
+    </table>
+  </div>
 </div>
