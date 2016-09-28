@@ -1,4 +1,6 @@
 class AccommodationsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     # /accommodations
     # @accommodations = Accommodation.all
@@ -23,7 +25,9 @@ class AccommodationsController < ApplicationController
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @accommodation = Accommodation.new
+    @location = Location.new
   end
 
   def edit
@@ -31,10 +35,17 @@ class AccommodationsController < ApplicationController
   end
 
   def create
-    @accommodation = Accommodation.new(accommodation_params)
+    @trip = Trip.find(params[:trip_id])
+    @location = Location.new(location_params)
+    # location_id: @location.id, trip_id: @trip.id
 
-    if @accommodation.save
-      redirect_to accommodation_path(@accommodation)
+
+    if @location.save
+      # replace creator_id with current_user after auth setup
+      @accommodation = Accommodation.new(accommodation_params.merge(trip_id: @trip.id, location_id: @location.id, creator_id: 1))
+      if @accommodation.save
+        redirect_to accommodation_path(@accommodation)
+      end
     else
       render :new
     end
@@ -62,4 +73,9 @@ class AccommodationsController < ApplicationController
   def accommodation_params
     params.require(:accommodation).permit(:creator_id, :trip_id, :location_id, :check_in, :check_out )
   end
+
+  def location_params
+    params.require(:location).permit(:name, :street_address_1, :street_address_2, :city, :state, :zipcode)
+  end
+
 end
