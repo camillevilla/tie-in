@@ -15,13 +15,14 @@ class AccommodationsController < ApplicationController
   end
 
   def my_accommodations
-    # trips/1/my_accommodations
+  # trips/1/my_accommodations
     @trip = Trip.find(params[:trip_id])
     # @accommodations =
   end
 
   def show
      @accommodation = Accommodation.find(params[:id])
+     @trip = Trip.find(@accommodation.trip_id)
      @location = @accommodation.location
   end
 
@@ -41,6 +42,7 @@ class AccommodationsController < ApplicationController
 
     if @location.save
       @accommodation = Accommodation.new(accommodation_params.merge(trip_id: @trip.id, location_id: @location.id, creator_id: current_user.id))
+      @accommodation.users << current_user
       if @accommodation.save
         redirect_to accommodation_path(@accommodation)
       end
