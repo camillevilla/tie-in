@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Tie-In</title>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -12,15 +12,19 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-brand">
-          <%= link_to "Tie-In", root_path %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar-brand"><%= link_to "Tie-In", root_path %></div>
         </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "New Trip", new_trip_path %></li>
-          <li><%= link_to "My Trips", user_trips_path(current_user) %>
+          <li><%= link_to "My Trips", user_trips_path(current_user) %></li>
           <li><%= link_to "Settings", edit_user_registration_path %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         </ul>
@@ -30,9 +34,10 @@
           <li><%= link_to "Sign In", new_user_session_path %></li>
         </ul>
         <% end %>
+       </div>
       </div>
     </nav>
-
+    <div id="spacer"></div>
     <%= yield %>
   </body>
   <footer>

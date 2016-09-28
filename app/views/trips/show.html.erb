@@ -12,23 +12,27 @@
     <h3>trip description</h3>
     <%=@trip.description%>
   </div>
-  <div>
-    <h3>attendees</h3>
-    <ul>
+  <h3>attendees</h3>
+  <div class="container">
+    <div class="transitions-enabled" id="pins">
       <% @trip.users.each do |user| %>
-        <li>
-          <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
-        </li>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+          <h4><a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a></h4>
+        </div>
+      </div>
       <% end %>
-      <% if @trip.creator_id == @user.id %>
-        <li>
-          <a href="fill-in-this-url">Invite a friend</a>
-        </li>
-      <% end %>
-    </ul>
-    <% if !@trip.users.include?(@user) %>
-      <a href="/trips/<%=@trip.id%>/join">Join this trip</a>
-    <% end %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+          <% if @trip.creator_id == @user.id %>
+          <h4><a href="fill-in-this-url"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> invite a friend</a></h4>
+          <% end %>
+          <% if !@trip.users.include?(@user) %>
+          <h4><a href="/trips/<%=@trip.id%>/join"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> join this trip</a></h4>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <table>`
