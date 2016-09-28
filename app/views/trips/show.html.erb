@@ -2,20 +2,18 @@
   <div class="jumbotron">
     <h1><%= @trip.name %></h1>
   </div>
-  <div class="container">
-    <h2>Trip Overview</h2>
-    dates: <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%><br>
-    location: <%=@trip.location.name%>
-  </div>
-
   <div>
+    <h3>trip overview</h3>
+    dates: <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%><br>
+    location: <%=@trip.location.name%><br>
     <a href="/trips/<%= @trip.id %>/edit">Edit</a>
   </div>
   <div>
+    <h4>trip description</h4>
     <%=@trip.description%>
   </div>
   <div>
-    <h2>Attendees</h2>
+    <h3>attendees</h3>
     <ul>
       <% @trip.users.each do |user| %>
         <li>
