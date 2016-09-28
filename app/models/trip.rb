@@ -5,6 +5,11 @@ class Trip < ApplicationRecord
   # validates :location_id, presence: true
   belongs_to :creator, class_name: "User"
   has_and_belongs_to_many :users
+  # Define users by hand using accepted invitations
+  # def users
+  #   accepted_invitations = trip_invitations.select { |invitation| invitation.accepted }
+  #   accepted_invitations.map { |invitation| invitation.recipient_id }
+  # end
   has_many :trip_invitations
   has_many :events
   has_many :accommodations

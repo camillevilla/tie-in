@@ -11,4 +11,9 @@ module ApplicationHelper
     date.strftime("%m/%y")
   end
 
+  # Short time format
+  def short_time(date)
+    date.strftime("%l:%M%P")
+  end
+
 end

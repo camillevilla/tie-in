@@ -1,0 +1,15 @@
+<h1><%= @trip.name %></h1>
+<h2>Events</h2>
+
+<div>
+  <ul>
+    <% @trip.events.each do |event| %>
+      <li>
+        <a href="/trips/<%=@trip.id%>/events/<%=event.id%>"><%= event.name %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <a href="/trips/<%=@trip.id%>/events/new">Add an Event</a>
+</div>
