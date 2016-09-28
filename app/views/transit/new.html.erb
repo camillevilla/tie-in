@@ -8,31 +8,27 @@
   </ul>
 <% end %>
 
-<h2>Form of Transport</h2>
+<h2>How are you getting there?</h2>
+<%= form_for @transit do |f| %>
 <div>
-<%= radio_button_tag(:travel, "Airplane") %>
-<%= label_tag(:travel_airplane, "Airplane") %><br>
-<%= radio_button_tag(:travel, "Bus") %>
-<%= label_tag(:travel_bus, "Bus") %><br>
-<%= radio_button_tag(:travel, "Car") %>
-<%= label_tag(:travel_car, "Car") %><br>
-<%= radio_button_tag(:travel, "Train") %>
-<%= label_tag(:travel_train, "Train") %><br>
-<%= radio_button_tag(:travel, "Boat") %>
-<%= label_tag(:travel_boat, "Boat") %><br>
-<%= radio_button_tag(:travel, "Other") %>
-<%= label_tag(:travel_other, "Other") %>
-<form>
-	<input type="text" name="other box">
-</form>
-</div>
+	<%= f.radio_button(:transit_type, "Airplane") %>
+	<%= f.label(:transit_type_airplane, "Airplane") %><br>
+	<%= f.radio_button(:transit_type, "Bus") %>
+	<%= f.label(:transit_type_bus, "Bus") %><br>
+	<%= f.radio_button(:transit_type, "Car") %>
+	<%= f.label(:transit_type_car, "Car") %><br>
+	<%= f.radio_button(:transit_type, "Train") %>
+	<%= f.label(:transit_type_train, "Train") %><br>
+	<%= f.radio_button(:transit_type, "Boat") %>
+	<%= f.label(:transit_type_boat, "Boat") %><br>
+	<%= f.radio_button(:transit_type, "Other") %>
+	<%= f.label(:transit_type_other, "Other") %>
+	<%= text_area(:message, "Anything else?", size: "24x6") %>
+	<div>
+	  <%= f.submit "Add Transport" %>
+	</div>
+<% end %>
 
-
-<h2>Additional Details</h2>
-<%= text_area_tag(:message, "Anything else?", size: "24x6") %>
-
-<div>
-  <%= f.submit "Add Transport" %>
 </div>
 
 
