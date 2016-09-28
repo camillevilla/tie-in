@@ -18,6 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+// orange: F15A23
+// blue: 1D376A
+// yellow: DBC124
+// lightblue: 36C6F3
 body {
   background: #ffffff;
   a {
@@ -33,8 +38,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
 
-.brand {
-  color: #39bdd2;
+.brand-light-blue {
+  color: #36C6F3;
+  font-weight: bold;
+}
+
+.brand-orange {
+  color: #F15A23;
   font-weight: bold;
 }
 
@@ -42,7 +52,7 @@ nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   .navbar-brand {
     a {
-      color: #39bdd2;
+      color: #1D376A;
       font-weight: bold;
       &:hover {
         text-decoration: none;
