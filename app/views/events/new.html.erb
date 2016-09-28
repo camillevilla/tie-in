@@ -9,20 +9,19 @@
 <% end %>
 
 <%= form_for [@trip, @event] do |f| %>
-  <%= f.label :name %>:
+  <%= f.label :name %>
   <%= f.text_field :name %>
   <div>
-    <%= f.label :description %>: <br>
+    <%= f.label :description %> <br>
     <%= f.text_area(:description, cols: 80, rows: 10) %>
   </div>
-  <%= f.label :start_time %>:
+  <%= f.label :start_time %>
   <%= f.datetime_local_field :start_time %>
-  <%= f.label :end_time %>:
+  <%= f.label :end_time %>
   <%= f.datetime_local_field :end_time %>
   <div>
-    <!-- Add partial form for new location once location table is ready -->
-    <%= f.label :location_id %>:
-    <%= f.number_field :location_id %>
+    <div>Location:</div>
+   <%= render "locations/new"%>
   </div>
   <div>
     <%= f.submit %>
