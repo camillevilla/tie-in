@@ -22,6 +22,7 @@ class AccommodationsController < ApplicationController
 
   def show
      @accommodation = Accommodation.find(params[:id])
+     @location = @accommodation.location
   end
 
   def new
@@ -37,17 +38,14 @@ class AccommodationsController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @location = Location.new(location_params)
-    # location_id: @location.id, trip_id: @trip.id
-
 
     if @location.save
-      # replace creator_id with current_user after auth setup
-      @accommodation = Accommodation.new(accommodation_params.merge(trip_id: @trip.id, location_id: @location.id, creator_id: 1))
+      @accommodation = Accommodation.new(accommodation_params.merge(trip_id: @trip.id, location_id: @location.id, creator_id: current_user.id))
       if @accommodation.save
         redirect_to accommodation_path(@accommodation)
       end
     else
-      render :new
+      render 'new'
     end
   end
 
