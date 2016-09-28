@@ -1,15 +1,20 @@
 <div class="container">
-  <div class="container">
-    <h1>Your Trips</h1>
-    <h3>Welcome, <%= @user.first_name %>!</h3>
+  <div class="jumbotron">
+    <h1>Welcome, <%= @user.first_name %>!</h1>
+    <h3>Your Trips</h3>
   </div>
-  <div id="trips" class="container transitions-enabled">
-      <% @user_trips.each do |trip| %>
-        <li>
-          <a href="/trips/<%=trip.id%>"><%= trip.name %></a>
-        </li>
-      <% end %>
-    </ul>
+  <div class="container">
+    <div class="transitions-enabled" id="pins">
+        <% @user_trips.each do |trip| %>
+        <div class="box panel panel-default">
+          <div class="panel-body">
+            <%= link_to (trip.name), trip %>
+          </div>
+        </div>
+
+        <% end %>
+
+    </div>
   </div>
   <div>
     <a href="/trips/new">Add a New Trip</a>

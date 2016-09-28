@@ -43,7 +43,7 @@ nav {
   }
 }
 
-#trips {
+#pins {
   margin: 0 auto;
   width: 100%;
   .box {
@@ -52,10 +52,6 @@ nav {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     border-radius: 7px;
     text-align: center;
-    img {
-      max-width: 100%;
-      height: auto;
-    }
     h2 {
       font-size: 22px;
       margin: 0;
@@ -69,6 +65,10 @@ nav {
       border-top: 1px solid #EAEAEA;
       padding: 15px;
       margin: 0;
+    }
+    a:hover {
+      color: #39bdd2;
+      text-decoration: none;
     }
   }
 }
