@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+	skip_before_filter :verify_authenticity_token
 		def index
       @user = User.find(params[:id])
       @user_friends = @user.friends
@@ -6,11 +7,12 @@ class FriendshipsController < ApplicationController
 
     def create
     	@user = current_user
-    	@friendship = friendship.new(user_id: @user.id, friend_id: params[:friend].to_i)
+    	@user_friends = @user.friends
+    	@friendship = Friendship.new(user_id: @user.id, friend_id: params[:friend].to_i)
     	if @friendship.save
     		redirect_to "users/:id/friendships"
   		else 
-  			@errors = @trip.errors.full_messages
+  			@errors = @friendship.errors.full_messages
   			render 'new'
   		end
   	end
