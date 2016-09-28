@@ -1,10 +1,17 @@
-<h1>Accommodation: <p><%= @location.name %></p></h1>
+<% if attending?(current_user)  %>
+  <h1>Your Accommodation: <%= @location.name %></h1>
+<% else %>
+  <h1>Accommodation: <%= @location.name %></h1>
+<% end %>
 
 <h3>Attendees</h3>
   <% if @accommodation.users.length > 0 %>
     <% @accommodation.users.each do |attendee| %>
       <li><%= attendee.first_name %><%= attendee.last_name %></li>
     <% end %>
+  <% end %>
+  <% if attending?(current_user) == false %>
+  <%= link_to "Join", trip_accommodation_path(@trip,@accommodation), method: :patch %>
   <% end %>
 </ul>
 
@@ -19,7 +26,9 @@
 <p><%= @accommodation.check_in %> to <%= @accommodation.check_out %></p>
 
 <button><%= link_to "Back: All Accommodations", trip_accommodations_path(@trip) %></button>
-<%if @accommodation.creator_id == current_user.id %>
+<% if current_user %>
+  <% if @accommodation.creator_id == current_user.id %>
   <button><%= link_to "Edit", trip_accommodation_path(@trip,@accommodation) %></button>
-  <!-- add Delete button later -->
+    <!-- add Delete button later -->
+  <% end %>
 <% end %>

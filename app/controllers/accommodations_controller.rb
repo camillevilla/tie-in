@@ -1,6 +1,9 @@
 class AccommodationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  include ApplicationHelper
+  include AccommodationHelper
+
   def index
     # /accommodations
     # @accommodations = Accommodation.all
@@ -10,14 +13,6 @@ class AccommodationsController < ApplicationController
       @trip = Trip.find(params[:trip_id])
       @accommodations = @trip.accommodations
     end
-
-    # /trips/1/users/1/accommodations
-  end
-
-  def my_accommodations
-  # trips/1/my_accommodations
-    @trip = Trip.find(params[:trip_id])
-    # @accommodations =
   end
 
   def show
@@ -52,12 +47,21 @@ class AccommodationsController < ApplicationController
   end
 
   def update
-    @accommodation = Accommodation.find(params[:id])
+    # @trip = Trip.find(params[:trip_id])
+    # @accommodation = Accommodation.find(params[:accommodation_id])
 
-    if @accommodation.update(accommodation_params)
-      redirect_to @accommodation
-    else
-      render 'edit'
+    # if @accommodation.update(accommodation_params)
+    #   redirect_to @accommodation
+    # else
+    #   render 'edit'
+    # end
+
+    # move this to a join action later
+    @trip = Trip.find(params[:trip_id])
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.users << current_user
+    if @accommodation.save
+      redirect_to accommodation_path(@accommodation)
     end
   end
 
@@ -66,6 +70,15 @@ class AccommodationsController < ApplicationController
     @accommodation.destroy
 
     redirect_to accommodations_path
+  end
+
+  # custom actions
+  def join
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.users << current_user
+    if @accommodation.save
+      redirect_to accommodation_path(@accommodation)
+    end
   end
 
   private
