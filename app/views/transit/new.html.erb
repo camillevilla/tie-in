@@ -1,0 +1,40 @@
+<h1>Transit</h1>
+
+<% if @errors %>
+  <ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<h2>Form of Transport</h2>
+<div>
+<%= radio_button_tag(:travel, "Airplane") %>
+<%= label_tag(:travel_airplane, "Airplane") %><br>
+<%= radio_button_tag(:travel, "Bus") %>
+<%= label_tag(:travel_bus, "Bus") %><br>
+<%= radio_button_tag(:travel, "Car") %>
+<%= label_tag(:travel_car, "Car") %><br>
+<%= radio_button_tag(:travel, "Train") %>
+<%= label_tag(:travel_train, "Train") %><br>
+<%= radio_button_tag(:travel, "Boat") %>
+<%= label_tag(:travel_boat, "Boat") %><br>
+<%= radio_button_tag(:travel, "Other") %>
+<%= label_tag(:travel_other, "Other") %>
+<form>
+	<input type="text" name="other box">
+</form>
+</div>
+
+
+<h2>Additional Details</h2>
+<%= text_area_tag(:message, "Anything else?", size: "24x6") %>
+
+<div>
+  <%= f.submit "Add Transport" %>
+</div>
+
+
+
+
