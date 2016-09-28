@@ -62,7 +62,7 @@ nav {
     text-align: center;
     h4 {
       font-size: 18px;
-      // font-weight: bold;
+      font-weight: 400;
       margin: 0;
       padding: 10px 10px;
       a {
@@ -132,3 +132,9 @@ textarea {
 #spacer {
   height: 5em;
 }
+.description {
+  color: #868686;
+  line-height: 1.75;
+  margin: 0;
+}
+
