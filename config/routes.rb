@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "trips/:id/join" => "trips#join"
   get "trips/:trip_id/events/:id/join" => "events#join"
 
-  get "/users/:user_id/trips/:id/transit/new" => "transit#new"
+  
 
   # get "trips/new" => "trips#new"
 

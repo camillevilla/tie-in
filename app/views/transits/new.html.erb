@@ -9,7 +9,7 @@
 <% end %>
 
 <h2>How are you getting there?</h2>
-<%= form_for @transit do |f| %>
+<%= form_for [@trip, @transit] do |f| %>
 <div>
 	<%= f.radio_button(:transit_type, "Airplane") %>
 	<%= f.label(:transit_type_airplane, "Airplane") %><br>

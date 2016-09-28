@@ -2,7 +2,7 @@ class TransitsController < ApplicationController
 include ApplicationHelper
 
   def index
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
     @transit = @trip.transits
   end
 
@@ -21,12 +21,12 @@ include ApplicationHelper
   end
 
   def create
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
 
     @transit = Transit.new(transit_params.merge(creator_id: current_user.id, trip_id: @trip.id))
 
     if @transit.save
-      redirect_to transits_path(@transit)
+      redirect_to trip_transits_path(@trip)
     else
       render :new
     end
