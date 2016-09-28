@@ -13,15 +13,19 @@ class TripsController < ApplicationController
   end
 
   def create
-    p trip_params
     @user = current_user
-    @trip = Trip.new(trip_params)
-    @trip.creator_id = @user.id
-    if @trip.save
-      @trip.users << @user
-      redirect_to @trip
+    @location = Location.new(location_params)
+    if @location.save
+      @trip = Trip.new(trip_params.merge(creator_id: @user.id, location_id: @location.id))
+      if @trip.save
+        @trip.users << @user
+        redirect_to @trip
+      else
+        @errors = @trip.errors.full_messages
+        render 'new'
+      end
     else
-      @errors = @trip.errors.full_messages
+      @errors = @location.errors.full_messages
       render 'new'
     end
   end
@@ -46,14 +50,21 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
+    @location = @trip.location
   end
 
   def update
     @trip = Trip.find(params[:id])
-    if @trip.update(trip_params)
-      redirect_to @trip
+    @location = @trip.location
+    if @location.update(location_params)
+      if @trip.update(trip_params)
+        redirect_to @trip
+      else
+        @errors = @trip.errors.full_messages
+        render 'edit'
+      end
     else
-      @errors = @trip.errors.full_messages
+      @errors = @location.errors.full_messages
       render 'edit'
     end
   end
@@ -68,5 +79,8 @@ class TripsController < ApplicationController
   private
   def trip_params
     params.require(:trip).permit(:name, :location_id, :description, :start_date, :end_date)
+  end
+  def location_params
+    params.require(:location).permit(:name, :street_address_1, :street_address_2, :city, :state, :zipcode)
   end
 end
