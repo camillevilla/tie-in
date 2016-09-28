@@ -75,7 +75,7 @@ end
 
 @friendships = Friendship.all
 
-10. times do
+10.times do
   Accommodation.create(
     creator_id: @users.sample.id,
     trip_id: @trips.sample.id,
@@ -86,4 +86,7 @@ end
 end
 
 @accommodations = Accommodation.all
+@accommodations.each do |accommodation|
+  accommodation.users << accommodation.creator
+end
 
