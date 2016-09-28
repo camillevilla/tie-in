@@ -18,6 +18,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@lightblue = #36C6F3;
+
 
 // orange: F15A23
 // blue: 1D376A
@@ -38,14 +40,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
 
+.brand-blue {
+  color: #1D376A;
+  font-weight: 400;
+}
+
+.brand-yellow {
+  color: #DBC124;
+  font-weight: 400;
+}
+
 .brand-light-blue {
   color: #36C6F3;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .brand-orange {
   color: #F15A23;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 nav {
@@ -146,5 +158,14 @@ textarea {
   color: #868686;
   line-height: 1.75;
   margin: 0;
+}
+
+.signup {
+  background: #1D376A;
+  color: #DBC124;
+  &:hover {
+    color: #F15A23;
+  }
+
 }
 
