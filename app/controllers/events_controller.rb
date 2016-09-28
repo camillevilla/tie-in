@@ -8,18 +8,24 @@ class EventsController < ApplicationController
       @event = Event.new()
     end
 
-    def create
-        @trip = Trip.find(params[:trip_id])
-        @event = Event.new(event_params)
-        @event.creator_id = current_user.id
-        @event.trip_id = @trip.id
-        if @event.save
-          redirect_to trip_event_path(@trip, @event)
-        else
-          @errors = @event.errors.full_messages
-          render 'new'
-        end
+  def create
+    @trip = Trip.find(params[:trip_id])
+    @location = Location.new(location_params)
+    if @location.save
+      @event = Event.new(event_params.merge(trip_id: @trip.id, creator_id: current_user.id, location_id: @location.id))
+      @event.creator_id = current_user.id
+      @event.trip_id = @trip.id
+      if @event.save
+        redirect_to trip_event_path(@trip, @event)
+      else
+        @errors = @event.errors.full_messages
+        render 'new'
+      end
+    else
+      @errors = @location.errors.full_messages
+      render 'new'
     end
+  end
 
   def show
     p "*" * 80
@@ -63,6 +69,9 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:name, :creator_id, :trip_id, :location_id, :description, :start_time, :end_time, :privacy)
+  end
+  def location_params
+    params.require(:location).permit(:name, :street_address_1, :street_address_2, :city, :state, :zipcode)
   end
 
 end

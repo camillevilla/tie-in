@@ -46,5 +46,20 @@ class User < ApplicationRecord
   def events_for(trip)
     events.select { |event| event.trip_id = trip.id }
   end
+
+  # Helper method generates data for timeline
+  # Returns string containing JavaScript code
+  def timeline_row(event)
+    row = "[ '"
+    row << first_name
+    row << "', '"
+    row << event.name
+    row << "', new Date('"
+    row << event.start_time.to_s
+    row << "'), new Date("
+    row << event.end_time.to_s
+    row << "') ]"
+    row
+  end
 end
 
