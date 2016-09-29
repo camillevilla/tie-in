@@ -122,6 +122,21 @@ camille = User.create(
   password: "password"
 )
 
+nick.friends << dave
+nick.friends << jeff
+nick.friends << camille
+dave.friends << nick
+dave.friends << jeff
+dave.friends << camille
+jeff.friends << dave
+jeff.friends << nick
+jeff.friends << camille
+camille.friends << dave
+camille.friends << jeff
+camille.friends << nick
+
+
+
 uid = User.last.id
 
 dbc = Trip.create(
@@ -168,5 +183,7 @@ p2 = Event.create(
 
 p2.users << dave
 p2.users << camille
+
+
 
 

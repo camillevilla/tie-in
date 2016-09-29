@@ -6,8 +6,12 @@ Rails.application.routes.draw do
       }
   # get "users/:user_id/trips/:id" => "users#trip"
   get "users/:id/trips" => "trips#index"
+  post "users/:id/invite" => "trips#invite"
 
 
+  post "trips/:trip_id/friends" => "trips#invite"
+  get "trips/:trip_id/friends" => "trips#friends"
+  get "trips/:id/json" => "trips#json"
   get "trips/:id/join" => "trips#join"
   get "trips/:trip_id/events/:id/join" => "events#join"
   get "trips/:id/timeline" => "trips#timeline"
@@ -21,9 +25,11 @@ Rails.application.routes.draw do
   # resources :users do
   #   resources :trips, shallow: true
   # end
-  get '/users/:id/friendships/new' => "friendships#new"
-  get '/users/:id/friendships' => "friendships#index"
-  resources :friendships
+  # get '/users/:id/friendships/new' => "friendships#new"
+  # get '/users/:id/friendships' => "friendships#index"
+  get '/users/:user_id/find' => "friendships#find"
+  post '/users/:user_id/mail' => "friendships#mail"
+  # resources :friendships
 
 # Enable nested routes, e.g. /trips/1/accommodations
   resources :trips do
