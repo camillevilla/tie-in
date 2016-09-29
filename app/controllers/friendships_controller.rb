@@ -1,15 +1,19 @@
 class FriendshipsController < ApplicationController
+	skip_before_filter :verify_authenticity_token
 		def index
-		@friends = User.find(params[:id]).friends
-
-		@json = @friends.map do |friend|
-      	{
-        	id: friend.id,
-      		first_name: friend.first_name,
-        	last_name: friend.last_name,
-        	email: friend.email,
-      	}
+      @user = User.find(params[:id])
+      @user_friends = @user.friends
     end
-    render :json => @json
-  end
+
+    def create
+    	@user = current_user
+    	@user_friends = @user.friends
+    	@friendship = Friendship.new(user_id: @user.id, friend_id: params[:friend].to_i)
+    	if @friendship.save
+    		redirect_to "users/:id/friendships"
+  		else 
+  			@errors = @friendship.errors.full_messages
+  			render 'index'
+  		end
+  	end
 end

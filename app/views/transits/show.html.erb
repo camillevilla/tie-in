@@ -1,0 +1,11 @@
+<h1>Transportation</h1>
+
+<h2><%= @trip.name %></h2>
+
+ <div class="transit">
+    <p><%= @transit.transit_type %><br />
+    <%= pretty_date(@transit.start_time) %><br />
+    <%= pretty_date(@transit.end_time) %><br />
+    <%= link_to 'Edit' %> | <%= link_to 'Delete' %></p>
+  </div>
+

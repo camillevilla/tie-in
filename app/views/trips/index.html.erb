@@ -1,17 +1,23 @@
-<h1>Your Trips</h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome, <%= @user.first_name %>!</h1>
+    <h3 class="brand">Your Trips</h3>
+  </div>
+  <div class="container">
+    <div class="transitions-enabled" id="pins">
+      <% @user_trips.each do |trip| %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+          <h4><%= link_to (trip.name), trip %></h4>
+        </div>
+      </div>
+      <% end %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+        <h4><a href="/trips/new"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> add a new trip</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div>
-  <p>Welcome, <%= @user.first_name %>!</p>
-</div>
-<div>
-  <ul>
-    <% @user_trips.each do |trip| %>
-      <li>
-        <a href="/trips/<%=trip.id%>"><%= trip.name %></a>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div>
-  <a href="/trips/new">Add a New Trip</a>
-</div>

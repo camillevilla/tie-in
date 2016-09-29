@@ -1,0 +1,8 @@
+<h1><%= @user.first_name %>'s Transports</h1>
+
+
+<ul>
+<% @transits.each do |transit| %>
+	<li><%= transit.transit_type %></li>
+<% end %>
+</ul>

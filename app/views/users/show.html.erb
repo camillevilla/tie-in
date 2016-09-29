@@ -1,0 +1,46 @@
+<h1>Trip: <%=@trip.name%></h1>
+<div>
+  <h2><%=@user.first_name%> <%=@user.last_name%></h2>
+  <h3>Contact</h3>
+  <div><%=@user.email%></div>
+</div>
+
+<div>
+  <h2>Travel</h2>
+  <% @transits.each do |transit| %>
+  <div class="transit">
+    <p><%= transit.transit_type %><br />
+    <%= pretty_date(transit.start_time) %><br />
+    <%= pretty_date(transit.end_time) %><br />
+    <%= link_to 'Details', trip_transit_path(@trip,transit) %></p>
+  </div>
+  <% end %>
+</div>
+
+<div>
+  <h2>Accommodations</h2>
+  <% @accommodations.each do |accommodation| %>
+  <div class="accommodation">
+    <p>
+    <%= accommodation.location.name %><br />
+    <%= accommodation.location.street_address_1 %><br />
+    <%= accommodation.location.street_address_2 %><br />
+    <%= accommodation.location.city %>, <%= accommodation.location.state %> <%= accommodation.location.zipcode %><br />
+    <%= link_to 'Details', trip_accommodation_path(@trip,accommodation) %>
+    </p>
+  </div>
+  <% end %>
+</div>
+
+<div>
+  <h2>Events</h2>
+  <% @events.each do |event| %>
+    <div>
+    <p>
+    <%= link_to event.name, trip_event_path(@trip,event) %><br />
+    <%=short_date(event.start_time)%> at <%=short_time(event.start_time)%> - <%=short_time(event.end_time)%><br />
+    <%=event.location.name%>
+    </p>
+    </div>
+  <% end %>
+</div>
