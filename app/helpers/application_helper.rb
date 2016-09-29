@@ -8,7 +8,7 @@ module ApplicationHelper
 
   # Short date format
   def short_date(date)
-    date.strftime("%m/%y")
+    date.strftime("%m/%d")
   end
 
   # Short time format

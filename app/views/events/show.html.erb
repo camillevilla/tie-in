@@ -1,8 +1,11 @@
-<h1><%= @trip.name %></h1>
-<h2><%= @event.name %></h2>
-
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <h1 class="brand-yellow"><%= @trip.name %></h1>
+    <h2 class="brand-orange"><%= @event.name %></h2>
+  </div>
 <div>
-  <%=short_date(@event.start_time)%> at <%=short_time(@event.start_time)%> - <%=short_time(@event.end_time)%><br>
+  <h3 class="brand-orange-light">event overview</h3>
+  <span class="description"><%=short_date(@event.start_time)%> at <%=short_time(@event.start_time)%> - <%=short_time(@event.end_time)%><br>
   <%=@event.location.name%>
 </div>
 <div>
