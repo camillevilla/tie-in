@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # get '/users/:id/friendships/new' => "friendships#new"
   # get '/users/:id/friendships' => "friendships#index"
   get '/users/:user_id/find' => "friendships#find"
+  post '/users/:user_id/mail' => "friendships#mail"
   # resources :friendships
 
 # Enable nested routes, e.g. /trips/1/accommodations

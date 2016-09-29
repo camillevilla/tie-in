@@ -1,7 +1,7 @@
 <h1><%= @user.first_name %>'s Friends</h1>
 
 <ul>
-<% @user_friends.each do |friend| %>
+<% @user.friends.each do |friend| %>
 	<li>
   	<button type="submit" name="submit_param" action="/friendships" class="link-button">
     	<%= friend.first_name %>

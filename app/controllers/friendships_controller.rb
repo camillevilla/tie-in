@@ -22,6 +22,11 @@ class FriendshipsController < ApplicationController
       end
     end
 
+    def mail
+      @user = User.find(params[:user_id])
+      @email = params[:email]
+    end
+
     def new
       @user = User.find(params[:user_id])
       @users = User.all
