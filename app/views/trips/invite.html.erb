@@ -1,17 +1,5 @@
 <h1><%= @trip.name %></h1>
 
-<ul>
-<% @user_friends.each do |friend| %>
-  <li>
-    <form method="post" action="/users/<%= @user.id %>/invite">
-      <input type="hidden" name="friend" value="<%= friend.id %>">
-      <input type="submit" value="<%= friend.first_name %>">
-    </form>
-  </li>
-<% end %>
-</ul>
+<p>Invitation sent to <%= @friend.first_name %> <%= @friend.last_name %></p>
 
-<form action="/users/<%= @user.id %>/find">
-  <input type="text" name="email" placeholder="Email address">
-  <input type="submit" value="Invite Friend">
-</form>
+<a href="/trips/<%= @trip.id %>"">Return to trip home page</a>

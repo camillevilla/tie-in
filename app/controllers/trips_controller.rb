@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   helper ApplicationHelper
-  # skip_before_filter  :verify_authenticity_token
+  skip_before_filter  :verify_authenticity_token
 
   def index
     @user = User.find(params[:id])
@@ -35,11 +35,23 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def friends
+    @user = current_user
+    @trip = Trip.find(params[:trip_id])
+  end
+
+  def invite
+    p"*"*80
+    p params
+    @user = current_user
+    @trip = Trip.find(params[:trip_id])
+    @friend = User.find(params[:friend])
+  end
+
   def json
     @trip = Trip.find(params[:id])
     render json: @trip.json_data
   end
-
 
   def timeline
     @trip = Trip.find(params[:id])

@@ -6,9 +6,11 @@ Rails.application.routes.draw do
       }
   # get "users/:user_id/trips/:id" => "users#trip"
   get "users/:id/trips" => "trips#index"
+  post "users/:id/invite" => "trips#invite"
 
 
-  get "trips/:trip_id/invite" => "trips#invite"
+  post "trips/:trip_id/friends" => "trips#invite"
+  get "trips/:trip_id/friends" => "trips#friends"
   get "trips/:id/json" => "trips#json"
   get "trips/:id/join" => "trips#join"
   get "trips/:trip_id/events/:id/join" => "events#join"
