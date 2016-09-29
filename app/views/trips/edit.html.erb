@@ -1,31 +1,42 @@
-<h1>Edit trip</h1>
-<h2>Revise the details of your trip</h2>
+<div class="container">
+  <div class="rows">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="brand-light-blue">Edit this trip</h2>
+      </div>
+      <div class="panel-body">
+        <h2>Revise the details of your trip</h2>
 
-<% if @errors %>
-  <ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-<% end %>
+        <% if @errors %>
+          <ul>
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+          </ul>
+        <% end %>
 
-<%= form_for @trip do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <div>
-    <%= f.label :description %> <br>
-    <%= f.text_area(:description, cols: 80, rows: 10) %>
-  </div>
-  <%= f.label :start_date %>
-  <%= f.datetime_local_field :start_date %>
-  <%= f.label :end_date %>
-  <%= f.datetime_local_field :end_date %>
-  <div>
-
-    <div>Location:</div>
-    <%= render partial: "locations/edit", locals: {current_location: @location}%>
-  </div>
-  <div>
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+        <%= form_for @trip do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %> <br>
+          <%= f.text_area :description, cols: 40 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date %>
+          <%= f.datetime_local_field :start_date %>
+          <%= f.label :end_date %>
+          <%= f.datetime_local_field :end_date %>
+        </div>
+        <div class="form-group">
+          <div class="container">
+            Location:
+            <%= render partial: "locations/edit", locals: {current_location: @location}%>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "Submit" %>
+        </div>
+          <% end %>

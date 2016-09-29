@@ -25,6 +25,7 @@ include ApplicationHelper
     @trip = Trip.find(params[:trip_id])
 
     @transit = Transit.new(transit_params.merge(creator_id: current_user.id, trip_id: @trip.id))
+    @transit.users << current_user
 
     if @transit.save
       redirect_to trip_transits_path(@trip)
