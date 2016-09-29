@@ -1,30 +1,48 @@
-<h1>Edit event</h1>
-<h2>Revise the details of your event</h2>
-<% if @errors %>
-  <ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="rows">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="brand-light-blue">Event details</h2>
+        <h3 class="brand-orange-light">revise your event details</h3>
+      </div>
 
-<%= form_for(@event, url: trip_event_path(@trip)) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <div>
-    <%= f.label :description %> <br>
-    <%= f.text_area(:description, cols: 80, rows: 10) %>
+      <div class="panel-body">
+        <% if @errors %>
+          <ul>
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+          </ul>
+        <% end %>
+
+        <%= form_for(@event, url: trip_event_path(@trip)) do |f| %>
+        <div class="form-inputs">
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %> <br>
+            <%= f.text_area(:description, cols: 40) %>
+          </div>
+          <div class="form-group">
+            <%= f.label :start_time %>
+            <%= f.datetime_local_field :start_time %>
+            <%= f.label :end_time %>
+            <%= f.datetime_local_field :end_time %>
+          </div>
+
+          <div class="form-group">
+            <!-- Add partial form for new location once location table is ready -->
+            <%= f.label :location_id %>
+            <%= f.number_field :location_id %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Submit" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= f.label :start_time %>
-  <%= f.datetime_local_field :start_time %>
-  <%= f.label :end_time %>
-  <%= f.datetime_local_field :end_time %>
-  <div>
-    <!-- Add partial form for new location once location table is ready -->
-    <%= f.label :location_id %>
-    <%= f.number_field :location_id %>
-  </div>
-  <div>
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+</div>
