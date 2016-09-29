@@ -15,4 +15,32 @@ class Trip < ApplicationRecord
   has_many :accommodations
   has_many :transits
   belongs_to :location
+
+  # Return array containing trip data
+  # To be converted to JSON for use with timeline
+  def json_data
+    data = []
+    # Loop through all users
+    users.each do |user|
+      event_data = []
+      # Loop through all events for user
+      user.events_for(self).each do |event|
+        # Add event data to user list
+        event_data << {
+          id: event.id,
+          label: event.name,
+          starting_time: event.start_time.to_i,
+          ending_time: event.end_time.to_i,
+        }
+      end
+      # Add user data to list
+      data << {
+        label: user.first_name,
+        times: event_data
+      }
+    end
+    p "*"*80
+    p data
+    data
+  end
 end

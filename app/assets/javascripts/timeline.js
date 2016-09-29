@@ -11,6 +11,8 @@ window.onload = function() {
 
   var width = 800;
 
+  const URL = "http://localhost:3000/"
+
   // function handleClick() {
   // }
 
@@ -30,8 +32,10 @@ window.onload = function() {
         div.find('#name').text(datum.label + ": " + d.label);
       })
       .click(function (d, i, datum) {
-        console.log(datum.label);
-        alert(datum.label + ": " + d.label);
+        console.log(datum);
+        console.log(d.id);
+        // window.location.href = URL + "trips/78/events/" + d.id;
+        navigateToEvent(d);
       })
       .scroll(function (x, scale) {
         $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
@@ -44,5 +48,36 @@ window.onload = function() {
       .call(chart);
   }
 
-  timelineHover();
+  function loadDataFromServer() {
+    $.ajax({
+      url: URL + "trips/78/json",
+      dataType: 'json',
+      success: function(data) {
+        labelTestData = data;
+        timelineHover();
+      }.bind(this),      // makes sure 'this' continues to be the correct object inside the callback
+      error: function(xhr, status, err) {
+        console.error(URL, status, err.toString());
+      }.bind(this)
+    });
+  }
+
+  function navigateToEvent(event_data) {
+    query = $.param(event_data)
+    console.log(query);
+    $.ajax({
+      url: URL + "trips/78/find_event",
+      data: query,
+      success: function(response) {
+        console.log(response);
+        $('#event-details').html(response);
+      }.bind(this),      // makes sure 'this' continues to be the correct object inside the callback
+      error: function(xhr, status, err) {
+        console.error(URL, status, err.toString());
+      }.bind(this)
+    });
+  }
+
+  loadDataFromServer();
+
 }
