@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require 'masonry/transitions'
  *= require_tree .
  *= require_self
  */
@@ -18,11 +19,23 @@
 @import "bootstrap";
 
 body {
-  background: #FFFFF;
+  background: #ffffff;
+  a {
+    text-decoration: none;
+    &:hover {
+      color: #39bdd2;
+      text-decoration: none;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
+}
+
+.brand {
+  color: #39bdd2;
+  font-weight: bold;
 }
 
 nav {
@@ -43,18 +56,15 @@ nav {
   width: 100%;
   .box {
     margin: 10px;
-    width: 350px;
+    width: 250px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     border-radius: 7px;
     text-align: center;
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    h2 {
-      font-size: 22px;
+    h4 {
+      font-size: 18px;
+      font-weight: 400;
       margin: 0;
-      padding: 25px 10px;
+      padding: 10px 10px;
       a {
         color: #474747;
       }
@@ -64,6 +74,10 @@ nav {
       border-top: 1px solid #EAEAEA;
       padding: 15px;
       margin: 0;
+    }
+    a:hover {
+      color: #39bdd2;
+      text-decoration: none;
     }
   }
 }
@@ -114,3 +128,13 @@ nav {
 textarea {
   min-height: 250px;
 }
+
+#spacer {
+  height: 5em;
+}
+.description {
+  color: #868686;
+  line-height: 1.75;
+  margin: 0;
+}
+

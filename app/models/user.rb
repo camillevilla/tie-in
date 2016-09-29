@@ -31,13 +31,6 @@ class User < ApplicationRecord
   #   accepted_invitations.map { |invitation| invitation.event_id }
   # end
 
-  # friends
-  # has_and_belongs_to_many :friends, join_table: :friends, class_name: "User", foreign_key: "user_id", association_foreign_key: "other_user_id"
-  # def add_friend(user)
-  #   self.friends << user
-  #   user.friends << self
-  # end
-
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"

@@ -89,10 +89,11 @@ ActiveRecord::Schema.define(version: 20160928000422) do
     t.integer  "creator_id"
     t.integer  "trip_id"
     t.boolean  "arrival"
+    t.string   "transit_type"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "transits_users", force: :cascade do |t|

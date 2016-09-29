@@ -15,5 +15,7 @@
 //= require d3_v3
 //= require d3-timeline
 //= require timeline
+//= require masonry/jquery.masonry
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
