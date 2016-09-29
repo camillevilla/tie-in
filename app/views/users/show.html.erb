@@ -1,4 +1,4 @@
-<h1>Trip: <%=@trip.name%></h1>
+<h1>Trip: <%= link_to @trip.name, trip_path(@trip) %></h1>
 <div>
   <h2><%=@user.first_name%> <%=@user.last_name%></h2>
   <h3>Contact</h3>
