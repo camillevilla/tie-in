@@ -5,11 +5,18 @@ RSpec.describe Transit, type: :model do
     it { should have_db_column(:creator_id) }
     it { should have_db_column(:trip_id) }
     it { should have_db_column(:arrival) }
-    # Polymorphic associations to be implemented after MVP
-    # it { should have_db_column(:transit_id) }
-    # it { should have_db_column(:transit_type) }
     it { should have_db_column(:start_time) }
     it { should have_db_column(:end_time) }
+
+    # Polymorphic associations to be implemented after MVP
+    # it { should have_db_column(:transit_id) }
+    it { should have_db_column(:transit_type) }
+
+    # temporary flight attributes
+    :airline
+    :flight_number
+    :origin
+    :destination
   end
 
   describe "associations" do
