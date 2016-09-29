@@ -38,7 +38,7 @@ gem 'pry-rails'
 # Gem for responsive design
 gem 'masonry-rails', '~> 0.2.4'
 gem 'httparty'
-# gem 'pp'
+# gem 'gon'
 
 
 # Use Capistrano for deployment
