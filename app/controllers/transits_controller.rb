@@ -9,7 +9,7 @@ include ApplicationHelper
 
   def show
     @trip = Trip.find(params[:trip_id])
-    @transit = Transit.find(params[:transit_id])
+    @transit = Transit.find(params[:id])
   end
 
   def new
@@ -25,6 +25,7 @@ include ApplicationHelper
     @trip = Trip.find(params[:trip_id])
 
     @transit = Transit.new(transit_params.merge(creator_id: current_user.id, trip_id: @trip.id))
+    @transit.users << current_user
 
     if @transit.save
       redirect_to trip_transits_path(@trip)
@@ -51,9 +52,13 @@ include ApplicationHelper
   end
 private
 
-	def transit_params
-		params.require(:transit).permit(:creator_id, :trip_id, :arrival, :transit_type, :start_time, :end_time)	
-	end
+	# def transit_params
+	# 	params.require(:transit).permit(:creator_id, :trip_id, :arrival, :transit_type, :start_time, :end_time)
+	# end
+
+  def transit_params
+    params.require(:transit).permit(:creator_id, :trip_id, :arrival, :airline, :flight_number, :origin, :destination, :transit_type, :start_time, :end_time)
+  end
 end
 
 

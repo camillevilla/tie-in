@@ -90,3 +90,100 @@ end
   accommodation.users << accommodation.creator
 end
 
+# Timeline test data
+
+lid = Location.first.id
+
+nick = User.create(
+  first_name: "Nick",
+  last_name: "Davidson",
+  email: "nick@nick.com",
+  password: "password"
+)
+
+dave = User.create(
+  first_name: "David",
+  last_name: "Ross",
+  email: "dave@dave.com",
+  password: "password"
+)
+
+jeff = User.create(
+  first_name: "Jeff",
+  last_name: "Roy",
+  email: "jeff@jeff.com",
+  password: "password"
+)
+
+camille = User.create(
+  first_name: "Camille",
+  last_name: "Villa",
+  email: "camille@camille.com",
+  password: "password"
+)
+
+nick.friends << dave
+nick.friends << jeff
+nick.friends << camille
+dave.friends << nick
+dave.friends << jeff
+dave.friends << camille
+jeff.friends << dave
+jeff.friends << nick
+jeff.friends << camille
+camille.friends << dave
+camille.friends << jeff
+camille.friends << nick
+
+
+
+uid = User.last.id
+
+dbc = Trip.create(
+  creator_id: uid,
+  name: "Dev Bootcamp",
+  description: "Learn to be a web developer!",
+  start_date: 1.day.ago,
+  end_date: 1.day.from_now,
+  location_id: lid
+)
+p dbc
+
+dbc.users << nick
+dbc.users << dave
+dbc.users << jeff
+dbc.users << camille
+
+p1 = Event.create(
+  trip_id: dbc.id,
+  creator_id: uid,
+  name: "Phase 1",
+  description: "Phase 1",
+  start_time: 1.day.ago,
+  end_time: DateTime.now,
+  location_id: lid,
+  privacy: false
+)
+
+p1.users << nick
+p1.users << dave
+p1.users << jeff
+
+
+p2 = Event.create(
+  trip_id: dbc.id,
+  creator_id: uid,
+  name: "Phase 2",
+  description: "Phase 2",
+  start_time: DateTime.now,
+  end_time: 1.day.from_now,
+  location_id: lid,
+  privacy: false
+)
+
+p2.users << dave
+p2.users << camille
+
+
+
+

@@ -18,8 +18,11 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <div class="navbar-brand"><%= link_to "Tie-In", root_path %></div>
-        </div>
+
+          <div class="navbar-brand">
+            <a href="/"><%= image_tag "tie-in-logo-nav.png" %></a>
+            <%= link_to "Tie-In", root_path %></div>
+          </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
