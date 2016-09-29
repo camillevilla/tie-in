@@ -19,7 +19,7 @@ window.onload = function() {
   function timelineHover() {
     var chart = d3.timeline()
       .width(width*2)
-      .itemHeight(30)
+      .itemHeight(20)
       .stack()
       .margin({left:70, right:30, top:0, bottom:0})
       .hover(function (d, i, datum) {
