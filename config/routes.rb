@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "users/:id/trips" => "trips#index"
 
 
+  get "trips/:trip_id/invite" => "trips#invite"
+  get "trips/:id/json" => "trips#json"
   get "trips/:id/join" => "trips#join"
   get "trips/:trip_id/events/:id/join" => "events#join"
   get "trips/:id/timeline" => "trips#timeline"
