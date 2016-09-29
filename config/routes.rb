@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   # resources :users do
   #   resources :trips, shallow: true
   # end
-  get '/users/:id/friendships/new' => "friendships#new"
-  get '/users/:id/friendships' => "friendships#index"
-  resources :friendships
+  # get '/users/:id/friendships/new' => "friendships#new"
+  # get '/users/:id/friendships' => "friendships#index"
+  get '/users/:user_id/find' => "friendships#find"
+  # resources :friendships
 
 # Enable nested routes, e.g. /trips/1/accommodations
   resources :trips do

@@ -1,0 +1,7 @@
+<h1><%= @user.first_name %>'s Friends</h1>
+
+<form method="post" action="/users/<%= @user.id %>/friendships">
+  <p><%= @friend.first_name %> <%= @friend.last_name %> is already a member.  Would you like to add this person as a friend?<p>
+  <input type="text" name="friend" value="<%= @friend.id %>">
+  <input type="submit" value="Add Friend">
+</form>

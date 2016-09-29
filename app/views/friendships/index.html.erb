@@ -11,7 +11,7 @@
 </ul>
 
 
-<form method="post" action="/friendships">
-  <input type="text" name="friend_id" placeholder="Friend ID">
-  <input type="submit" value="Add Friend">
+<form action="/users/<%= @user.id %>/find">
+  <input type="text" name="email" placeholder="Email address">
+  <input type="submit" value="Invite Friend">
 </form>
