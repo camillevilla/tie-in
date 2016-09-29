@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
 
-  def index
+  def show
+    if params[:trip_id]
+      @trip = Trip.find(params[:trip_id])
+      @user = User.find(params[:id])
+      @accommodations = @user.accommodations
+      @transits = @user.transits
+      @events = @user.events
+    end
   end
-  def trip
-    @user = User.find(params[:user_id])
-    @trip = Trip.find(params[:id])
 
-  end
 end
