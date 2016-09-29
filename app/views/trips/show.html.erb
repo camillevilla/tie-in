@@ -18,7 +18,7 @@
       <% @trip.users.each do |user| %>
       <div class="box panel panel-default">
         <div class="panel-body">
-          <h4><a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a></h4>
+          <h4><%= link_to user.first_name + ' ' + user.last_name, trip_user_path(@trip, user)%></h4>
         </div>
       </div>
       <% end %>
@@ -38,12 +38,16 @@
   <div id="pins">
     <h3 class="brand-orange-light">at a glance</h3>
     <div class="box panel panel-default">
+      <h4><%= link_to 'My Details', trip_user_path(@trip, current_user)%></h4>
+      <p class="description"></p>
+    </div>
+    <div class="box panel panel-default">
       <h4><a href="#">Timeline</a></h4>
-      <p class="description">When does everyone arrive?  Or enter your own travel details</p>
+      <p class="description">When does everyone arrive?</p>
     </div>
     <div class="box panel panel-default">
       <h4><a href="#">Map</a></h4>
-      <p class="description">Where is everyone staying? Or enter your own accommodations</p>
+      <p class="description">Where is everyone staying?</p>
     </div>
     <div class="box panel panel-default">
       <h4><a href="#">Events</a></h4>
