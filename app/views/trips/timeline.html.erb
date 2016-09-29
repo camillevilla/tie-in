@@ -1,62 +1,55 @@
+<!doctype html>
 <html>
-  <head>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<head>
+<!--   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+<!--   <script src="d3-timeline.js"></script> -->
 
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['timeline']});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var container = document.getElementById('timeline');
-        var chart = new google.visualization.Timeline(container);
-        var dataTable = new google.visualization.DataTable();
+  <style type="text/css">
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
 
-        dataTable.addColumn({ type: 'string', id: 'President' });
-        dataTable.addColumn({ type: 'date', id: 'Start' });
-        dataTable.addColumn({ type: 'date', id: 'End' });
-        dataTable.addRows([
-          [ 'Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
-          [ 'Adams',      new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
-          [ 'Jefferson',  new Date(1801, 2, 4),  new Date(1809, 2, 4) ]]);
+    .axis text {
+      font-family: sans-serif;
+      font-size: 10px;
+    }
 
-        chart.draw(dataTable);
-      }
-    </script>
+    .timeline-label {
+      font-family: sans-serif;
+      font-size: 12px;
+    }
 
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['timeline']});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var container = document.getElementById('test');
-        var chart = new google.visualization.Timeline(container);
-        var dataTable = new google.visualization.DataTable();
+    #timeline2 .axis {
+      transform: translate(0px,40px);
+      -ms-transform: translate(0px,40px); /* IE 9 */
+      -webkit-transform: translate(0px,40px); /* Safari and Chrome */
+      -o-transform: translate(0px,40px); /* Opera */
+      -moz-transform: translate(0px,40px); /* Firefox */
+    }
 
-        dataTable.addColumn({ type: 'string', id: 'President' });
-        dataTable.addColumn({ type: 'string', id: 'Name' });
-        dataTable.addColumn({ type: 'date', id: 'Start' });
-        dataTable.addColumn({ type: 'date', id: 'End' });
-          // [ '<%= @users.first.first_name %>', 'hmm', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
-          // [ 'Adams', 'fsd',     new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
-          <% @users.each do |user| %>
-            <% user.events_for(@trip).each do |event| %>
-              dataTable.addRows([
-              ['<%= user.first_name %>',
-              '<%= event.name %>',
-              new Date('<%= event.start_time %>'),
-              new Date('<%= event.end_time %>')]]);
-            <% end %>
-          <% end %>
+    .coloredDiv {
+      height:20px; width:20px; float:left;
+    }
+  </style>
 
-        var options = {
-          timeline: { colorByRowLabel: true }
-        };
+</head>
+<body>
 
-        chart.draw(dataTable, options);
-      }
-    </script>
+  <div>
+    <h3>A stacked timeline with hover, click, and scroll events</h3>
+    <br>
+    <div id="timeline3"></div>
+    <div id="hoverRes">
+      <div class="coloredDiv"></div>
+      <div id="name"></div>
+      <div id="scrolled_date"></div>
+      <div id="event-details"></div>
+    </div>
+  </div>
 
-  </head>
-  <body>
-    <div id="timeline" style="height: 180px;"></div>
-    <div id="test" style="height: 180px;"></div>
-  </body>
+
+</body>
 </html>

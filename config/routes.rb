@@ -8,14 +8,13 @@ Rails.application.routes.draw do
   get "users/:id/trips" => "trips#index"
 
 
-
   get "trips/:id/join" => "trips#join"
   get "trips/:trip_id/events/:id/join" => "events#join"
   get "trips/:id/timeline" => "trips#timeline"
   # This seems to handle rendering of 'new' without getting errors
   get "trips" => "trips#new"
 
-  
+
 
   # get "trips/new" => "trips#new"
 
@@ -35,12 +34,12 @@ Rails.application.routes.draw do
   resources :transits
 
   resources :events
-  resources :users do 
+  resources :users do
     resources :friendships, :trips
   end
 
 
- 
+
   resources :locations
 
 
