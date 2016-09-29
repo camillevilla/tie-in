@@ -12,9 +12,9 @@
   <% else %>
     <% @transits.each do |transit| %>
     <div class="transit">
-      <p><%= transit.transit_type %><br />
-      <%= pretty_date(transit.start_time) %><br />
-      <%= pretty_date(transit.end_time) %><br />
+      <p><%= transit.airline %> <%= transit.flight_number %><br />
+    <%= transit.origin %> | <%= pretty_date(transit.start_time) %><br />
+    <%= transit.destination %> | <%= pretty_date(transit.end_time) %><br />
       <%= link_to 'Details', trip_transit_path(@trip,transit) %></p>
     </div>
     <% end %>

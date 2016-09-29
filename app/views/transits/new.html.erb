@@ -1,4 +1,5 @@
-<h1>Transit</h1>
+<!-- New transit temporarily adjusted to flight info only -->
+<h1>Add Travel Details</h1>
 
 <% if @errors %>
   <ul>
@@ -10,41 +11,39 @@
 
 <h3>Arrival or Departure?</h3>
 <%= form_for [@trip, @transit] do |f| %>
-	<div>
-	<%= f.radio_button(:arrival, "Arriving") %>
-	<%= f.label(:arrival_arriving, "Arriving") %>
-	<%= f.radio_button(:arrival, "Departing") %>
-	<%= f.label(:arrival_departing, "Departing") %>
-	</div>
-<h3>How are you getting there?</h3>
-<div>
-	<%= f.radio_button(:transit_type, "Airplane") %>
-	<%= f.label(:transit_type_airplane, "Airplane") %><br>
-	<%= f.radio_button(:transit_type, "Bus") %>
-	<%= f.label(:transit_type_bus, "Bus") %><br>
-	<%= f.radio_button(:transit_type, "Car") %>
-	<%= f.label(:transit_type_car, "Car") %><br>
-	<%= f.radio_button(:transit_type, "Train") %>
-	<%= f.label(:transit_type_train, "Train") %><br>
-	<%= f.radio_button(:transit_type, "Boat") %>
-	<%= f.label(:transit_type_boat, "Boat") %><br>
-	<%= f.radio_button(:transit_type, "Other") %>
-	<%= f.label(:transit_type_other, "Other") %><br>
-	<%= text_area(:transit_type, size: "30x10") %>
+  <div>
+  <%= f.radio_button(:arrival, "Arriving") %>
+  <%= f.label(:arrival_arriving, "Arriving") %>
+  <%= f.radio_button(:arrival, "Departing") %>
+  <%= f.label(:arrival_departing, "Departing") %>
+  </div>
+<h3>Flight</h3>
+    <div>
+    <%= f.label :airline %>
+    <%= f.text_field :airline %>
+    <%= f.label :flight_number %>
+    <%= f.text_field :flight_number %>
+    </div>
 
-	<div>
-		<h3>When are you leaving?</h3>
-		<%= f.label :start_time %>
-	  <%= f.datetime_local_field :start_time %>
-	  <%= f.label :end_time %>
-	  <%= f.datetime_local_field :end_time %>
-	</div>
-	<div>
-	  <%= f.submit "Add Transport" %>
-	</div>
+    <div>
+    <%= f.label :origin, "Origin"%>
+    <%= f.text_field :origin %>
+    <%= f.label :destination, "Destination" %>
+    <%= f.text_field :destination %>
+    </div>
+
+  <div>
+    <h3>When are you leaving?</h3>
+    <%= f.label :start_time %>
+    <%= f.datetime_local_field :start_time %>
+    <%= f.label :end_time %>
+    <%= f.datetime_local_field :end_time %>
+  </div>
+  <div>
+    <%= f.submit "Add Transport" %>
+  </div>
 <% end %>
 
-</div>
 
 
 

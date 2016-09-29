@@ -6,9 +6,9 @@
     <% transit.users.each do |attendee| %>
       <%= attendee.first_name %> <%= attendee.last_name %><br />
     <% end %>
-    <%= transit.transit_type %><br />
-    <%= pretty_date(transit.start_time) %><br />
-    <%= pretty_date(transit.end_time) %><br />
+    <%= transit.airline %> <%= transit.flight_number %><br />
+    <%= transit.origin %> | <%= pretty_date(transit.start_time) %><br />
+    <%= transit.destination %> | <%= pretty_date(transit.end_time) %><br />
     <%= link_to 'Edit' %> | <%= link_to 'Delete' %>
   </li>
 <% end %>
