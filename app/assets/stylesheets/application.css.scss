@@ -60,6 +60,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+.brand-blue-light {
+  color: #1D376A;
+}
+
+.brand-yellow-light {
+  color: #DBC124;
+}
+
+.brand-light-blue-light {
+  color: #36C6F3;
+}
+
+.brand-orange-light {
+  color: #F15A23;
+}
+
 nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   .navbar-brand {
@@ -84,7 +100,7 @@ nav {
     text-align: center;
     h4 {
       font-size: 18px;
-      font-weight: 400;
+      font-weight: 200;
       margin: 0;
       padding: 10px 10px;
       a {
@@ -160,7 +176,7 @@ textarea {
   margin: 0;
 }
 .description-yellow {
-  color: #868686;
+  color: #DBC124;
   line-height: 1.75;
   margin: 0;
 }
@@ -174,11 +190,6 @@ textarea {
 }
 
 #mytrips {
-  background: #1D376A;
-  color: #DBC124;
-}
-
-#homepage {
   background: #1D376A;
   color: #DBC124;
 }
