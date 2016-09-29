@@ -1,6 +1,6 @@
 <h1><%= @user.first_name %>'s Friends</h1>
 
-<form method="post" action="/users/<%= @user.id %>/mail">
+<form method="post" action="/users/<%= @user.id %>/find">
   <p>There is no member with the email address <%= @friend_email %>.  Would you like to send an invitation?<p>
   <input type="hidden" name="email" value="<%= @friend_email %>">
   <input type="submit" value="Send Invitation">

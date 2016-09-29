@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "trips/:trip_id/friends" => "trips#invite"
   get "trips/:trip_id/friends" => "trips#friends"
   get "trips/:id/json" => "trips#json"
+  get "trips/:trip_id/find_event" => "trips#find_event"
   get "trips/:id/join" => "trips#join"
   get "trips/:trip_id/events/:id/join" => "events#join"
   get "trips/:id/timeline" => "trips#timeline"
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   # get '/users/:id/friendships/new' => "friendships#new"
   # get '/users/:id/friendships' => "friendships#index"
   get '/users/:user_id/find' => "friendships#find"
-  post '/users/:user_id/mail' => "friendships#mail"
+  post '/users/:user_id/find' => "friendships#mail"
   # resources :friendships
 
 # Enable nested routes, e.g. /trips/1/accommodations
