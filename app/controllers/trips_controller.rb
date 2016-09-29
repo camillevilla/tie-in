@@ -35,10 +35,22 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def json
+    @trip = Trip.find(params[:id])
+    render json: @trip.json_data
+  end
+
+
   def timeline
     @trip = Trip.find(params[:id])
     @events = @trip.events
     @users = @trip.users
+  end
+
+  def find_event
+    @event = Event.find(params[:id])
+    @trip = @event.trip
+    render @event, layout: false
   end
 
   def join
