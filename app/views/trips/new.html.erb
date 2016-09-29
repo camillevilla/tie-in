@@ -16,24 +16,28 @@
         <% end %>
 
         <%= form_for @trip do |f| %>
-        <div class="panel-body">
           <div class="form-group">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <div>
-    <%= f.label :description %> <br>
-    <%= f.text_area(:description, cols: 80, rows: 10) %>
-  </div>
-  <%= f.label :start_date %>
-  <%= f.datetime_local_field :start_date %>
-  <%= f.label :end_date %>
-  <%= f.datetime_local_field :end_date %>
-  <div>
-    <div>Location:</div>
-   <%= render "locations/new"%>
-  </div>
-  <div>
-    <%= f.submit "Next:  Add friends" %>
-  </div>
-<% end %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %> <br>
+            <%= f.text_area(:description, class: "form-control", rows: "2") %>
+          </div>
+          <div class="form-group">
+            <%= f.label :start_date %>
+            <%= f.datetime_local_field :start_date %>
+            <%= f.label :end_date %>
+            <%= f.datetime_local_field :end_date %>
+          </div>
+          <div class="form-group">
+            <div class="container">
+              Location:
+              <%= render "locations/new"%>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit "add trip", class: "btn" %>
+          </div>
+          <% end %>
 
