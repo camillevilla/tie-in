@@ -1,11 +1,19 @@
-<h1><%=@trip.name%></h1>
+<h1>Trip: <%=@trip.name%></h1>
 <div>
-  <h2><%=@user.first_name%></h2>
-  <div>Contact</div>
+  <h2><%=@user.first_name%> <%=@user.last_name%></h2>
+  <h3>Contact</h3>
   <div><%=@user.email%></div>
 </div>
 <div>
   <h2>Travel</h2>
+  <% @transits.each do |transit| %>
+  <div class="transit">
+    <!-- insert transit details -->
+  </div>
+  <% end %>
+</div>
+<div>
+  <h2>Accommodations</h2>
   <% @accommodations.each do |accommodation| %>
   <div class="accommodation">
     <h3>
@@ -20,8 +28,12 @@
   <% end %>
 </div>
 <div>
-  <h2>Accommodations</h2>
-</div>
-<div>
   <h2>Events</h2>
+  <% @events.each do |event| %>
+    <div>
+    <p><%= event.name %></p>
+    <%=short_date(event.start_time)%> at <%=short_time(event.start_time)%> - <%=short_time(event.end_time)%><br>
+    <%=event.location.name%>
+    </div>
+  <% end %>
 </div>

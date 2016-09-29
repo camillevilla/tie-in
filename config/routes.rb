@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-  get "users/:user_id/trips/:id" => "users#trip"
+  # get "users/:user_id/trips/:id" => "users#trip"
   get "users/:id/trips" => "trips#index"
 
 
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
 # Enable nested routes, e.g. /trips/1/accommodations
   resources :trips do
-    resources :accommodations, :transits, :events, :locations
+    resources :accommodations, :transits, :events, :locations, :users
   end
 
   resources :accommodations

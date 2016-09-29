@@ -5,14 +5,12 @@ class AccommodationsController < ApplicationController
   include AccommodationHelper
 
   def index
-    # /accommodations
-    # @accommodations = Accommodation.all
-
     # /trips/1/accommodations
     if params[:trip_id]
       @trip = Trip.find(params[:trip_id])
       @accommodations = @trip.accommodations
     end
+
   end
 
   def show
@@ -53,7 +51,7 @@ class AccommodationsController < ApplicationController
     # if @accommodation.update(accommodation_params)
     #   redirect_to @accommodation
     # else
-    #   render 'edit'
+    #   render'edit'
     # end
 
     # move this to a join action later
