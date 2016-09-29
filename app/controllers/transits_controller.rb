@@ -9,7 +9,7 @@ include ApplicationHelper
 
   def show
     @trip = Trip.find(params[:trip_id])
-    @transit = Transit.find(params[:transit_id])
+    @transit = Transit.find(params[:id])
   end
 
   def new
@@ -52,7 +52,7 @@ include ApplicationHelper
 private
 
 	def transit_params
-		params.require(:transit).permit(:creator_id, :trip_id, :arrival, :transit_type, :start_time, :end_time)	
+		params.require(:transit).permit(:creator_id, :trip_id, :arrival, :transit_type, :start_time, :end_time)
 	end
 end
 
