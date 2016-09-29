@@ -4,7 +4,7 @@ FactoryGirl.define do
     trip_id 1
     arrival false
     # transit_id 1
-    # transit_type "MyString"
+    transit_type "Flight"
     start_time "2016-09-23 11:03:31"
     end_time "2016-09-23 11:03:31"
   end
