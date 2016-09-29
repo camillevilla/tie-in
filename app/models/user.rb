@@ -44,7 +44,7 @@ class User < ApplicationRecord
   has_many :inverse_friends, through: :inverse_friendships, source: :user
 
   def events_for(trip)
-    events.select { |event| event.trip_id = trip.id }
+    events.select { |event| event.trip_id == trip.id }
   end
 
   # Helper method generates data for timeline

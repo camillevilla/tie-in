@@ -1,0 +1,14 @@
+<h2>Your Friends</h2>
+
+<div>
+  <ul>
+    <% @friends.each do |friend| %>
+      <li>
+        <a href="/trips/<%=trip.id%>"><%= trip.name %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <a href="/trips/new">Add a New Trip</a>
+</div>
