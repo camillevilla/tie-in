@@ -52,9 +52,13 @@ include ApplicationHelper
   end
 private
 
-	def transit_params
-		params.require(:transit).permit(:creator_id, :trip_id, :arrival, :transit_type, :start_time, :end_time)
-	end
+	# def transit_params
+	# 	params.require(:transit).permit(:creator_id, :trip_id, :arrival, :transit_type, :start_time, :end_time)
+	# end
+
+  def transit_params
+    params.require(:transit).permit(:creator_id, :trip_id, :arrival, :airline, :flight_number, :origin, :destination, :transit_type, :start_time, :end_time)
+  end
 end
 
 
