@@ -8,9 +8,9 @@
     <% @user.friends.each do |friend| %>
       <div class="box panel panel-default">
         <div class="panel-body">
-          <form method="post" action="/trips/<%= @trip.id %>/friends">
+          <form  method="post" action="/trips/<%= @trip.id %>/friends">
             <input type="hidden" name="friend" value="<%= friend.id %>">
-            <input type="submit" value="<%= friend.first_name %>">
+            <input id="friends" type="submit" value="<%= friend.first_name %>">
           </form>
         </div>
       </div>
@@ -18,12 +18,10 @@
     </div>
   </div>
   <div class="container">
-    <div class="transitions-enabled" id="pins">
       <form action="/users/<%= @user.id %>/find">
         <input type="text" name="email" placeholder="Email address">
-        <input type="submit" value="Invite Friend">
+        <input class="btn" type="submit" value="Invite Friend">
       </form>
-    </div>
   </div>
 </div>
 
