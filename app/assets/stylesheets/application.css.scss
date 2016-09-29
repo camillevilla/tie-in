@@ -18,12 +18,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@lightblue = #36C6F3;
+
+
+// orange: F15A23
+// blue: 1D376A
+// yellow: DBC124
+// lightblue: 36C6F3
 body {
   background: #ffffff;
   a {
     text-decoration: none;
     &:hover {
-      color: #39bdd2;
+      color: #F15A23;
       text-decoration: none;
     }
   }
@@ -33,16 +40,47 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
 
-.brand {
-  color: #39bdd2;
-  font-weight: bold;
+.brand-blue {
+  color: #1D376A;
+  font-weight: 300;
+}
+
+.brand-yellow {
+  color: #DBC124;
+  font-weight: 300;
+}
+
+.brand-light-blue {
+  color: #36C6F3;
+  font-weight: 300;
+}
+
+.brand-orange {
+  color: #F15A23;
+  font-weight: 300;
+}
+
+.brand-blue-light {
+  color: #1D376A;
+}
+
+.brand-yellow-light {
+  color: #DBC124;
+}
+
+.brand-light-blue-light {
+  color: #36C6F3;
+}
+
+.brand-orange-light {
+  color: #F15A23;
 }
 
 nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   .navbar-brand {
     a {
-      color: #39bdd2;
+      color: #1D376A;
       font-weight: bold;
       &:hover {
         text-decoration: none;
@@ -62,7 +100,7 @@ nav {
     text-align: center;
     h4 {
       font-size: 18px;
-      font-weight: 400;
+      font-weight: 200;
       margin: 0;
       padding: 10px 10px;
       a {
@@ -76,7 +114,7 @@ nav {
       margin: 0;
     }
     a:hover {
-      color: #39bdd2;
+      color: #F15A23;
       text-decoration: none;
     }
   }
@@ -137,4 +175,21 @@ textarea {
   line-height: 1.75;
   margin: 0;
 }
+.description-yellow {
+  color: #DBC124;
+  line-height: 1.75;
+  margin: 0;
+}
 
+.signup {
+  background: #1D376A;
+  color: #DBC124;
+  &:hover {
+    color: #F15A23;
+  }
+}
+
+#mytrips {
+  background: #1D376A;
+  color: #DBC124;
+}

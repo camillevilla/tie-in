@@ -1,11 +1,30 @@
-<h1>Accommodations</h1>
-<h2>Trip: <%= @trip.name %></h2>
-
-<% @accommodations.each do |accommodation| %>
-  <div class="accommodation">
-    <h3><%= accommodation.creator.first_name %></h3>
-    <p><%= accommodation.location.street_address_1 %><p>
-    <p><%= accommodation.location.street_address_2 %></p>
-    <p><%= accommodation.location.city %>, <%= accommodation.location.state %> <%= accommodation.location.zipcode %></p>
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <h1 class="brand-yellow"><%= @trip.name %></h1>
+    <h2 class="brand-orange">accommodations</h2>
   </div>
-<% end %>
+
+  <div class="container">
+    <div class="transitions-enabled" id="pins">
+      <% @accommodations.each do |accommodation| %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+          <h4><%= accommodation.creator.first_name %></h4>
+          <span class="description">
+          <p><%= accommodation.location.street_address_1 %></p>
+          <p><%= accommodation.location.street_address_2 %></p>
+          <p><%= accommodation.location.city %>, <%= accommodation.location.state %> <%= accommodation.location.zipcode %></p></span>
+         </div>
+       </div>
+        <% end %>
+        <div class="box panel panel-default">
+          <div class="panel-body">
+            <h4><a href="/trips/<%=@trip.id%>/accommodations/new"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> add an accommodation</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

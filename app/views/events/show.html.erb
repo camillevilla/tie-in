@@ -1,32 +1,40 @@
-<h1><%= @trip.name %></h1>
-<h2><%= @event.name %></h2>
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <h1 class="brand-yellow"><%= @trip.name %></h1>
+    <h2 class="brand-orange"><%= @event.name %></h2>
+  </div>
+  <div>
+    <h3 class="brand-orange-light">event overview</h3>
+    <span class="description"><%=short_date(@event.start_time)%> starting at  <%=short_time(@event.start_time)%> until <%=short_time(@event.end_time)%><br>
+    <%=@event.location.name%><br></span>
+    <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/edit">Edit</a>
+  </div>
+  <div>
+    <h3 class="brand-orange-light">trip description</h3>
+    <p class="description"><%=@event.description%></p>
+  </div>
 
-<div>
-  <%=short_date(@event.start_time)%> at <%=short_time(@event.start_time)%> - <%=short_time(@event.end_time)%><br>
-  <%=@event.location.name%>
-</div>
-<div>
-  <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/edit">Edit</a>
-</div>
-<div>
-  <%=@event.description%>
-</div>
-<div>
-  <h2>Attendees</h2>
-  <ul>
-    <% @event.users.each do |user| %>
-      <li>
-        <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
-      </li>
-    <% end %>
-    <% if @event.creator_id == current_user.id %>
-      <li>
-        <a href="fill-in-this-url">Invite a friend</a>
-      </li>
-    <% end %>
-  </ul>
-  <% if !@event.users.include?(@user) %>
-    <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/join">Join this event</a>
-  <% end %>
+  <h3 class="brand-orange-light">attendees</h3>
+  <div class="container">
+    <div class="transitions-enabled" id="pins">
+      <% @event.users.each do |user| %>
+        <div class="box panel panel-default">
+          <div class="panel-body">
+            <h4><a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a></h4>
+          </div>
+        </div>
+      <% end %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
+          <% if @event.creator_id == current_user.id %>
+          <h4><a href="#"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> invite a friend</a></h4>
+          <% end %>
+          <% if !@event.users.include?(current_user) %>
+          <h4><a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/join"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> join this event</a></h4>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 

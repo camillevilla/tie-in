@@ -1,18 +1,18 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1><%= @trip.name %></h1>
+  <div id="mytrips" class="jumbotron">
+    <h1 class="brand-yellow"><%= @trip.name %></h1>
   </div>
   <div>
-    <h3>trip overview</h3>
+    <h3 class="brand-orange-light">trip overview</h3>
     <span class="description">dates: <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%></span><br>
     <span class="description">location: <%=@trip.location.name%></span><br>
     <a href="/trips/<%= @trip.id %>/edit">Edit</a>
   </div>
   <div>
-    <h3>trip description</h3>
+    <h3 class="brand-orange-light">trip description</h3>
     <p class="description"><%=@trip.description%></p>
   </div>
-  <h3>attendees</h3>
+  <h3 class="brand-orange-light">attendees</h3>
   <div class="container">
     <div class="transitions-enabled" id="pins">
       <% @trip.users.each do |user| %>
@@ -25,7 +25,7 @@
       <div class="box panel panel-default">
         <div class="panel-body">
           <% if @trip.creator_id == @user.id %>
-          <h4><a href="fill-in-this-url"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> invite a friend</a></h4>
+          <h4><a href="#"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> invite a friend</a></h4>
           <% end %>
           <% if !@trip.users.include?(@user) %>
           <h4><a href="/trips/<%=@trip.id%>/join"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> join this trip</a></h4>
@@ -36,6 +36,7 @@
   </div>
   <div id="spacer"></div>
   <div id="pins">
+    <h3 class="brand-orange-light">at a glance</h3>
     <div class="box panel panel-default">
       <h4><a href="#">Timeline</a></h4>
       <p class="description">When does everyone arrive?  Or enter your own travel details</p>
