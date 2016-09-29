@@ -1,14 +1,23 @@
-<h1>Add new trip</h1>
-<h2>Tell us more about your trip</h2>
-<% if @errors %>
-  <ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="rows">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="brand-light-blue">Add new trip</h2>
+      </div>
 
-<%= form_for @trip do |f| %>
+      <div class="panel-body">
+        <h2 class="brand-orange-light">Tell us more about your trip</h2>
+        <% if @errors %>
+          <ul>
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+          </ul>
+        <% end %>
+
+        <%= form_for @trip do |f| %>
+        <div class="panel-body">
+          <div class="form-group">
   <%= f.label :name %>
   <%= f.text_field :name %>
   <div>
