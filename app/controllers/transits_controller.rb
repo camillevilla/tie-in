@@ -2,8 +2,9 @@ class TransitsController < ApplicationController
 include ApplicationHelper
 
   def index
+    @user = current_user
     @trip = Trip.find(params[:trip_id])
-    @transit = @trip.transits
+    @transits = @trip.transits
   end
 
   def show

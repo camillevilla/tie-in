@@ -8,8 +8,15 @@
   </ul>
 <% end %>
 
-<h2>How are you getting there?</h2>
+<h3>Arrival or Departure?</h3>
 <%= form_for [@trip, @transit] do |f| %>
+	<div>
+	<%= f.radio_button(:arrival, "Arriving") %>
+	<%= f.label(:arrival_arriving, "Arriving") %>
+	<%= f.radio_button(:arrival, "Departing") %>
+	<%= f.label(:arrival_departing, "Departing") %>
+	</div>
+<h3>How are you getting there?</h3>
 <div>
 	<%= f.radio_button(:transit_type, "Airplane") %>
 	<%= f.label(:transit_type_airplane, "Airplane") %><br>
@@ -22,8 +29,16 @@
 	<%= f.radio_button(:transit_type, "Boat") %>
 	<%= f.label(:transit_type_boat, "Boat") %><br>
 	<%= f.radio_button(:transit_type, "Other") %>
-	<%= f.label(:transit_type_other, "Other") %>
-	<%= text_area(:message, "Anything else?", size: "24x6") %>
+	<%= f.label(:transit_type_other, "Other") %><br>
+	<%= text_area(:transit_type, size: "30x10") %>
+
+	<div>
+		<h3>When are you leaving?</h3>
+		<%= f.label :start_time %>
+	  <%= f.datetime_local_field :start_time %>
+	  <%= f.label :end_time %>
+	  <%= f.datetime_local_field :end_time %>
+	</div>
 	<div>
 	  <%= f.submit "Add Transport" %>
 	</div>
