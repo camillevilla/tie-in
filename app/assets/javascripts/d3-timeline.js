@@ -90,7 +90,7 @@
         ;
 
       if(showAxisCalendarYear) { appendTimeAxisCalendarYear(nav) };
-      console.log("eft:" +leftNavMargin);
+      // console.log("eft:" +leftNavMargin);
       nav.append("text")
         .attr("transform", "translate(" + leftNavMargin + ", 0)")
         .attr("x", 0)
@@ -102,7 +102,7 @@
         })
       ;
 
-      console.log("ight:" +rightNavMargin);
+      // console.log("ight:" +rightNavMargin);
       nav.append("text")
         .attr("transform", "translate(" + rightNavMargin + ", 0)")
         .attr("x", 0)
@@ -149,7 +149,7 @@
     var appendLabel = function (gParent, yAxisMapping, index, hasLabel, datum) {
       var fullItemHeight    = itemHeight + itemMargin;
       var rowsDown          = margin.top + (fullItemHeight/2) + fullItemHeight * (yAxisMapping[index] || 1);
-      console.log("abel:" +labelMargin);
+      // console.log("abel:" +labelMargin);
       gParent.append("text")
         .attr("class", "timeline-label")
         .attr("transform", "translate(" + labelMargin + "," + rowsDown + ")")
@@ -364,7 +364,7 @@
       if (width > gParentSize.width) {
         var move = function() {
           var x = Math.min(0, Math.max(gParentSize.width - width, d3.event.translate[0]));
-          console.log(");:" +x);
+          // console.log(");:" +x);
           zoom.translate([x, 0]);
           g.attr("transform", "translate(" + x + ",0)");
           scroll(x*scaleFactor, xScale);
@@ -380,7 +380,7 @@
       if (rotateTicks) {
         g.selectAll(".tick text")
           .attr("transform", function(d) {
-                    console.log("his:" +this.getBox());
+                    // console.log("his:" +this.getBox());
             return "rotate(" + rotateTicks + ")translate("
               + (this.getBBox().width / 2 + 10) + "," // TODO: change this 10
               + this.getBBox().height / 2 + ")";
@@ -442,13 +442,13 @@
               throw "width of the timeline is not set. As of Firefox 27, timeline().with(x) needs to be explicitly set in order to render";
             }
           } catch (err) {
-            console.log("err:" + err );
+            // console.log("err:" + err );
           }
         } else if (!(width && gParentSize.width)) {
           try {
             width = gParentItem.attr("width");
           } catch (err) {
-            console.log("err:" + err );
+            // console.log("err:" + err );
           }
         }
         // if both are set, do nothing
