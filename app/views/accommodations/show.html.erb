@@ -1,29 +1,40 @@
-<% if attending?(current_user)  %>
-  <h1>Your Accommodation: <%= @location.name %></h1>
-<% else %>
-  <h1>Accommodation: <%= @location.name %></h1>
-<% end %>
-
-<h3>Attendees</h3>
-  <% if @accommodation.users.length > 0 %>
-    <% @accommodation.users.each do |attendee| %>
-      <li><%= attendee.first_name %><%= attendee.last_name %></li>
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <% if attending?(current_user)  %>
+      <h2 class="brand-orange">Your accommodation:</h2>
+      <h1 class="brand-yellow"><%= @location.name %></h1>
+    <% else %>
+      <h1 class="brand-yellow"><%= @location.name %></h1>
     <% end %>
-  <% end %>
-  <% if attending?(current_user) == false %>
-  <%= link_to "Join", trip_accommodation_path(@trip,@accommodation), method: :patch %>
-  <% end %>
-</ul>
+  </div>
 
-<h3>Address</h3>
-<p><%= @location.street_address_1 %></p>
-<p><%= @location.street_address_2 %></p>
-<p><%= @location.city %></p>
-<p><%= @location.state %></p>
-<p><%= @location.zipcode %></p>
+  <div>
+    <h3 class="brand-orange-light">trip name</h3>
+    <p class="description"><%= @trip.name %></p>
+  </div>
 
-<h3>Reservation</h3>
-<p><%= @accommodation.check_in %> to <%= @accommodation.check_out %></p>
+  <div>
+  <h3 class="brand-orange-light">reservation details</h3>
+
+  <span class="description">
+    <%= @location.name %><br>
+    check in: <%= pretty_date(@accommodation.check_in) %><br>
+    checkout: <%= pretty_date(@accommodation.check_out) %><br><br>
+    <%= @location.street_address_1 %> <%= @location.street_address_2 %><br>
+    <%= @location.city %>, <%= @location.state %> <%= @location.zipcode %>
+  </div>
+  <div>
+    <h3 class="brand-orange-light">attendees</h3>
+    <% if @accommodation.users.length > 0 %>
+      <% @accommodation.users.each do |attendee| %>
+        <li><%= attendee.first_name %><%= attendee.last_name %></li>
+      <% end %>
+    <% end %>
+    <% if attending?(current_user) == false %>
+    <%= link_to "Join", trip_accommodation_path(@trip,@accommodation), method: :patch %>
+    <% end %>
+    </ul>
+  </div>
 
 <button><%= link_to "Back: All Accommodations", trip_accommodations_path(@trip) %></button>
 <% if current_user %>
