@@ -11,7 +11,8 @@
   <div class="transit">
     <p><%= transit.transit_type %><br />
     <%= pretty_date(transit.start_time) %><br />
-    <%= pretty_date(transit.end_time) %></p>
+    <%= pretty_date(transit.end_time) %><br />
+    <%= link_to 'Details', trip_transit_path(@trip,transit) %></p>
   </div>
   <% end %>
 </div>
@@ -24,7 +25,8 @@
     <%= accommodation.location.name %><br />
     <%= accommodation.location.street_address_1 %><br />
     <%= accommodation.location.street_address_2 %><br />
-    <%= accommodation.location.city %>, <%= accommodation.location.state %> <%= accommodation.location.zipcode %>
+    <%= accommodation.location.city %>, <%= accommodation.location.state %> <%= accommodation.location.zipcode %><br />
+    <%= link_to 'Details', trip_accommodation_path(@trip,accommodation) %>
     </p>
   </div>
   <% end %>
@@ -35,7 +37,7 @@
   <% @events.each do |event| %>
     <div>
     <p>
-    <%= event.name %><br />
+    <%= link_to event.name, trip_event_path(@trip,event) %><br />
     <%=short_date(event.start_time)%> at <%=short_time(event.start_time)%> - <%=short_time(event.end_time)%><br />
     <%=event.location.name%>
     </p>
