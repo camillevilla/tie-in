@@ -37,6 +37,9 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'pry-rails'
 # Gem for responsive design
 gem 'masonry-rails', '~> 0.2.4'
+gem 'httparty'
+# gem 'pp'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

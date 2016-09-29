@@ -3,4 +3,6 @@ class Accommodation < ApplicationRecord
   belongs_to :trip
   belongs_to :location
   belongs_to :creator, class_name: "User"
+
+  
 end
