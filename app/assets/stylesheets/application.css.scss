@@ -42,22 +42,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-blue {
   color: #1D376A;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .brand-yellow {
   color: #DBC124;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .brand-light-blue {
   color: #36C6F3;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .brand-orange {
   color: #F15A23;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 nav {
@@ -159,6 +159,11 @@ textarea {
   line-height: 1.75;
   margin: 0;
 }
+.description-yellow {
+  color: #868686;
+  line-height: 1.75;
+  margin: 0;
+}
 
 .signup {
   background: #1D376A;
@@ -166,6 +171,14 @@ textarea {
   &:hover {
     color: #F15A23;
   }
-
 }
 
+#mytrips {
+  background: #1D376A;
+  color: #DBC124;
+}
+
+#homepage {
+  background: #1D376A;
+  color: #DBC124;
+}
