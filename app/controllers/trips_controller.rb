@@ -67,6 +67,7 @@ class TripsController < ApplicationController
   def map
     @trip = Trip.find(params[:id])
     @key = Rails.application.secrets.google_api_key
+    @accommodations = @trip.accommodations
   end
 
   def find_event
