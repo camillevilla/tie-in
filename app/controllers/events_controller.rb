@@ -15,6 +15,7 @@ class EventsController < ApplicationController
       @event = Event.new(event_params.merge(trip_id: @trip.id, creator_id: current_user.id, location_id: @location.id))
       @event.creator_id = current_user.id
       @event.trip_id = @trip.id
+      @event.users << current_user
       if @event.save
         redirect_to trip_event_path(@trip, @event)
       else
