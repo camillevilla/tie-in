@@ -59,6 +59,15 @@ class TripsController < ApplicationController
     @users = @trip.users
   end
 
+  def location_json
+    @trip = Trip.find(params[:id])
+    render json: @trip.location_json
+  end
+
+  def map
+    @trip = Trip.find(params[:id])
+  end
+
   def find_event
     @event = Event.find(params[:id])
     @trip = @event.trip

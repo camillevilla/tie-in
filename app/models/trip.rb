@@ -43,4 +43,10 @@ class Trip < ApplicationRecord
     p data
     data
   end
+
+  def location_json
+    location.coordinates
+
+  end
+
 end

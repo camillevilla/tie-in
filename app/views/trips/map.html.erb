@@ -1,0 +1,50 @@
+
+<body>
+  <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 400px;
+        width: 400px;
+      }
+    </style>
+    <div id="map"></div>
+    <div class="trip-data" id="<%= @trip.id %>"></div>
+    <script>
+      var tripId = $(".trip-data").attr("id");
+      var latitude=35;
+      var longitude=-97;
+      var map;
+      const URL = "http://localhost:3000/trips/" + tripId
+      $(document).ready(function () {
+        getData();
+      });
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: latitude, lng: longitude},
+          zoom: 8
+        });
+      }
+      function getData() {
+        $.ajax({
+          url: URL + "/location_json",
+          dataType: 'json',
+          success: function(data) {
+            latitude = data[0];
+            longitude = data[1];
+            initMap();
+
+          }.bind(this),      // makes sure 'this' continues to be the correct object inside the callback
+          error: function(xhr, status, err) {
+            console.error(URL, status, err.toString());
+          }.bind(this)
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV5mHEXYZcDTdE7fralTv_0lRnwlSyhF4&callback=initMap"
+    async defer></script>
+
+</body>
