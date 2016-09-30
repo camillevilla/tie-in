@@ -6,7 +6,7 @@
 
 
   <div class="container">
-    <form method="post" action="/users/<%= @user.id %>/mail">
+    <form method="post" action="/users/<%= @user.id %>/find">
       <p class="description">There is no member with the email address <span class="brand-blue"><%= @friend_email %></span>.  Would you like to send an invitation?</p>
       <input type="hidden" name="email" value="<%= @friend_email %>">
       <input class="btn" type="submit" value="Send Invitation">
