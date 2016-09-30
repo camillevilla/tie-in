@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     if params[:trip_id]
       @trip = Trip.find(params[:trip_id])
       @user = User.find(params[:id])
-      @accommodations = @user.accommodations
-      @transits = @user.transits
-      @events = @user.events
+      @accommodations = @user.accommodations.where(trip_id: @trip.id)
+      @transits = @user.transits.where(trip_id: @trip.id)
+      @events = @user.events.where(trip_id: @trip.id)
     end
   end
 
