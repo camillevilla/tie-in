@@ -106,6 +106,11 @@ regina.save
     location_id: 2
     )
 
+    Trip.find(2).users << cameron
+    Trip.find(2).save
+    Trip.find(3).users << cameron
+    Trip.find(3).save
+
 # Accommodations
   # 3 users staying at the same hotel
   Accommodation.create(
