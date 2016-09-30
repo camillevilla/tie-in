@@ -68,6 +68,56 @@ regina.save
     zipcode: "89109",
     )
 
+  Location.create(
+  name:"Planet Hollywood",
+  street_address_1: "3667 S Las Vegas Blvd",
+  city: "Las Vegas",
+  state: "NV",
+  zipcode: "89109"
+)
+
+  Location.create(
+    name:"Share Nightclub",
+    street_address_1: "4636 Wynn Rd",
+    city: "Las Vegas",
+    state: "NV",
+    zipcode: "90103"
+  )
+
+  Location.create(
+    name:"McCarren International",
+    street_address_1: "5757 Wayne Newton Blvd",
+    city: "Las Vegas",
+    state: "NV",
+    zipcode: "89119"
+  )
+
+  Location.create(
+    name:"Vdara Hotel & Spa",
+    street_address_1: "2600 W Harmon Ave",
+    city: "Las Vegas",
+    state: "NV",
+    zipcode: "89158"
+  )
+
+  Location.create(
+    name:"Tropicana Hotel",
+    street_address_1: "3801 S Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "NV",
+    zipcode: "89109"
+  )
+
+  Location.create(
+    name:"Encore Beach Club",
+    street_address_1: "3131 S Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "NV",
+    zipcode: "89109"
+  )
+
+
+
 #Trip
   # primary <-- comment this out for the video
     # Vegas Hackathon
@@ -136,6 +186,22 @@ regina.save
 
   Accommodation.find(2).users << fabio
   Accommodation.find(2).save
+
+  Accommodation.create(
+    creator_id: 3,
+    trip_id: 1,
+    location_id: 7,
+    check_in: DateTime.new(2016,10,20,8,30),
+    check_out: DateTime.new(2016,10,25,15,30)
+  )
+
+  Accommodation.create(
+    creator_id: 3,
+    trip_id: 1,
+    location_id: 8,
+    check_in: DateTime.new(2016,10,20,8,30),
+    check_out: DateTime.new(2016,10,25,15,30)
+  )
 
 # Transits
   # 2 users arriving on the same flight
@@ -254,11 +320,75 @@ regina.save
   creator_id: 1,
   name: "Karaoke",
   description: "You know the drill.",
-  start_time: DateTime.new(2016,10,21,8,30),
-  end_time: DateTime.new(2016,10,21,10,30),
+  start_time: DateTime.new(2016,10,21,15,30),
+  end_time: DateTime.new(2016,10,21,18,30),
   location_id: 2,
   privacy: false
   )
 
+  Event.find(3).users << john
   Event.find(3).users << gretchen
   Event.find(3)
+
+  #britney
+  britney_betch = Event.create(
+  trip_id: 1,
+  creator_id: 2,
+  name: "Britney, Betch",
+  description: "OMG.",
+  start_time: DateTime.new(2016,10,22,8,30),
+  end_time: DateTime.new(2016,10,22,10,30),
+  location_id: 4,
+  privacy: false
+  )
+
+  Event.find(4).users << fabio
+  Event.find(4).users << gretchen
+  Event.find(4)
+
+  #dranks
+  share = Event.create(
+  trip_id: 1,
+  creator_id: 1,
+  name: "Drinks at Share",
+  description: "Drinks and dancing",
+  start_time: DateTime.new(2016,10,22,12,30),
+  end_time: DateTime.new(2016,10,22,15,30),
+  location_id: 5,
+  privacy: false
+  )
+
+  Event.find(5).users << regina
+  Event.find(5).users << gretchen
+  Event.find(5)
+
+  # mccarren
+  mccarren = Event.create(
+  trip_id: 1,
+  creator_id: 2,
+  name: "Premier Lounge",
+  description: "Let's use my platinum card and go to the United lounge.",
+  start_time: DateTime.new(2016,10,22,18,30),
+  end_time: DateTime.new(2016,10,22,21,30),
+  location_id: 5,
+  privacy: false
+  )
+
+  Event.find(6).users << gretchen
+  Event.find(6).users << john
+  Event.find(6)
+
+  skrillex = Event.create(
+  trip_id: 1,
+  creator_id: 3,
+  name: "Encore Beach Club",
+  description: "Music, music, music",
+  start_time: DateTime.new(2016,10,23,8,30),
+  end_time: DateTime.new(2016,10,23,10,30),
+  location_id: 5,
+  privacy: false
+  )
+
+  Event.find(7).users << gretchen
+  Event.find(7).users << regina
+  Event.find(7)
