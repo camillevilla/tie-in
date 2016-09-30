@@ -1,31 +1,32 @@
-<h2><%= @event.name %></h2>
+<div class="container">
+  <h3 class="brand-orange-light"><%= @event.name %></h3>
 
-<div>
-  <%=short_date(@event.start_time)%> at <%=short_time(@event.start_time)%> - <%=short_time(@event.end_time)%><br>
-  <%=@event.location.name%>
-</div>
-<div>
-  <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/edit">Edit</a>
-</div>
-<div>
-  <%=@event.description%>
-</div>
-<div>
-  <h2>Attendees</h2>
-  <ul>
-    <% @event.users.each do |user| %>
-      <li>
-        <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
-      </li>
+  <div>
+    <%=short_date(@event.start_time)%> at <%=short_time(@event.start_time)%> - <%=short_time(@event.end_time)%><br>
+    <%=@event.location.name%>
+  </div>
+  <div>
+    <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/edit">Edit</a>
+  </div>
+  <div>
+    <%=@event.description%>
+  </div>
+  <div>
+    <h3 class="brand-orange-light">Attendees</h3>
+    <ul>
+      <% @event.users.each do |user| %>
+        <li>
+          <a href="/users/<%=user.id%>/trips/<%=@trip.id%>"><%=user.first_name%></a>
+        </li>
+      <% end %>
+      <% if @event.creator_id == current_user.id %>
+        <li>
+          <a href="fill-in-this-url">Invite a friend</a>
+        </li>
+      <% end %>
+    </ul>
+    <% if !@event.users.include?(@user) %>
+      <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/join">Join this event</a>
     <% end %>
-    <% if @event.creator_id == current_user.id %>
-      <li>
-        <a href="fill-in-this-url">Invite a friend</a>
-      </li>
-    <% end %>
-  </ul>
-  <% if !@event.users.include?(@user) %>
-    <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/join">Join this event</a>
-  <% end %>
+  </div>
 </div>
-
