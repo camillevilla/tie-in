@@ -1,12 +1,14 @@
 <div class="container">
   <div id="mytrips" class="jumbotron">
-    <h1 class="brand-yellow"><%= @trip.name %></h1>
+    <h1 class="brand-yellow"><%= link_to @trip.name, trip_path(@trip) %></h1>
   </div>
   <div>
     <h3 class="brand-orange-light">trip overview</h3>
     <span class="description">dates: <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%></span><br>
+    <% if @trip.creator_id == @user.id %>
     <span class="description">location: <%=@trip.location.name%></span><br>
     <a href="/trips/<%= @trip.id %>/edit">Edit</a>
+    <% end %>
   </div>
   <div>
     <h3 class="brand-orange-light">trip description</h3>
@@ -57,7 +59,7 @@
       <p class="description">Where is everyone staying?</p>
     </div>
     <div class="box panel panel-default">
-      <h4><a href="/trips/<%=@trip.id%>/events">Events</a></h4>
+      <h4><%= link_to 'Events', trip_events_path(@trip) %></h4>
       <p class="description">What else is happening during the trip?  Or create a new event</p>
     </div>
   </div>

@@ -1,5 +1,10 @@
-<h1><%= @user.first_name %>'s Friends</h1>
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <h2 class="brand-yellow"><%= @user.first_name %>, you will soon have a friend!</h2>
+  </div>
+  <div>
+    <p class="description">An invitation was sent to <%= @email %>.</p><br />
+    <button class="btn"><%= link_to "Back to trip", user_trips_path(current_user) %></button>
 
-<p>Invitation sent to <%= @email %>.</p>
-
-<a href="/users/<%= @user.id %>/friendships"">Return to friends home page</a>
+  </div>
+</div>

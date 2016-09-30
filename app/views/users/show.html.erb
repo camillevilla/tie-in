@@ -1,28 +1,31 @@
-<h1>Trip: <%= link_to @trip.name, trip_path(@trip) %></h1>
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <h1 class="brand-yellow">Trip: <%= link_to @trip.name, trip_path(@trip) %></h1>
+  </div>
 <div>
-  <h2><%=@user.first_name%> <%=@user.last_name%></h2>
-  <h3>Contact</h3>
-  <div><%=@user.email%></div>
+  <h2 class="brand-orange-light">itinerary for:<span class="description"> <%=@user.first_name%> <%=@user.last_name%></span></h2>
+  <h3 class="brand-orange-light">contact</h3>
+  <span class="description"><%=@user.email%></span>
 </div>
 
 <div>
-  <h2>Travel</h2>
+  <h2 class="brand-orange-light">travel</h2>
   <% if @transits.length == 0 %>
     <%= link_to 'Add your travel details', new_trip_transit_path(@trip) %>
   <% else %>
     <% @transits.each do |transit| %>
-    <div class="transit">
+      <div class="transit">
       <p><%= transit.airline %> <%= transit.flight_number %><br />
     <%= transit.origin %> | <%= pretty_date(transit.start_time) %><br />
     <%= transit.destination %> | <%= pretty_date(transit.end_time) %><br />
       <%= link_to 'Details', trip_transit_path(@trip,transit) %></p>
-    </div>
+      </div>
     <% end %>
   <% end %>
 </div>
 
 <div>
-  <h2>Accommodations</h2>
+  <h2 class="brand-orange-light">accommodations</h2>
   <% if @accommodations.length == 0 %>
     <%= link_to 'Add your accommodation', new_trip_accommodation_path(@trip) %>
   <% else %>
@@ -30,7 +33,7 @@
     <div class="accommodation">
       <p>
       <%= accommodation.location.name %><br />
-      <%= accommodation.location.street_address_1 %><br />
+      <%= accommodation.location.street_address_1 %>
       <%= accommodation.location.street_address_2 %><br />
       <%= accommodation.location.city %>, <%= accommodation.location.state %> <%= accommodation.location.zipcode %><br />
       <%= link_to 'Details', trip_accommodation_path(@trip,accommodation) %>
@@ -41,18 +44,16 @@
 </div>
 
 <div>
-  <h2>Events</h2>
-  <% if @events.length == 0 %>
-    <%= link_to 'Join an event', trip_events_path(@trip) %>
-  <% else %>
+  <h2 class="brand-orange-light">events</h2>
     <% @events.each do |event| %>
       <div>
       <p>
       <%= link_to event.name, trip_event_path(@trip,event) %><br />
       <%=short_date(event.start_time)%> at <%=short_time(event.start_time)%> - <%=short_time(event.end_time)%><br />
-      <%=event.location.name%>
+      <%=event.location.name%><br />
       </p>
       </div>
     <% end %>
-  <% end %>
+    <%= link_to 'Join an event', trip_events_path(@trip) %>
+
 </div>
