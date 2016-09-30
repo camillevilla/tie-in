@@ -27,7 +27,7 @@ module AccommodationHelper
       # googleAPI = AccommodationHelper.new
 
       @location_string.each do |loc|
-        geoAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=#{loc}&key=AIzaSyBCKEhZqZl8_JNUap2rtCfa50HrvkFv6QU"
+        geoAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=#{loc}&key=#{Rails.application.secrets.google_api_key}"
         longitude = geocoding(geoAPI).parsed_response["results"][0]["geometry"]["location"]["lng"]
         latitude = geocoding(geoAPI).parsed_response["results"][0]["geometry"]["location"]["lat"]
       end

@@ -18,8 +18,11 @@ class Location < ApplicationRecord
   def coordinates
 
       loc = address_string
-      geoAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=#{loc}&key=AIzaSyBCKEhZqZl8_JNUap2rtCfa50HrvkFv6QU"
+      geoAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=#{loc}&key=#{Rails.application.secrets.google_api_key}"
+      p geoAPI
       response = HTTParty.get(geoAPI)
+      p "*"*80
+      p response
       longitude = response["results"][0]["geometry"]["location"]["lng"]
       latitude = response["results"][0]["geometry"]["location"]["lat"]
       [latitude, longitude]
