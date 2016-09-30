@@ -1,7 +1,14 @@
-<h1><%= @user.first_name %>'s Friends</h1>
+<div class="container">
+  <div id="mytrips" class="jumbotron">
+    <h1 class="brand-yellow" >Ooo...a newbie!</h1>
+    <h3 class="brand-orange">Invite a friend</h3>
+  </div>
 
-<form method="post" action="/users/<%= @user.id %>/mail">
-  <p>There is no member with the email address <%= @friend_email %>.  Would you like to send an invitation?<p>
-  <input type="hidden" name="email" value="<%= @friend_email %>">
-  <input type="submit" value="Send Invitation">
-</form>
+  <div class="container">
+    <form method="post" action="/users/<%= @user.id %>/mail">
+      <p class="description">There is no member with the email address <span class="brand-blue"><%= @friend_email %></span>.  Would you like to send an invitation?</p>
+      <input type="hidden" name="email" value="<%= @friend_email %>">
+      <input class="btn" type="submit" value="Send Invitation">
+    </form>
+  </div>
+</div>
