@@ -17,16 +17,22 @@ class Location < ApplicationRecord
   # Or return nil if no address defined
   def coordinates
 
-      loc = address_string
-      geoAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=#{loc}&key=#{Rails.application.secrets.google_api_key}"
-      p geoAPI
-      response = HTTParty.get(geoAPI)
-      p "*"*80
-      p response
-      longitude = response["results"][0]["geometry"]["location"]["lng"]
-      latitude = response["results"][0]["geometry"]["location"]["lat"]
-      [latitude, longitude]
+      # p loc = address_string
+      # geoAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=#{loc}&key=#{Rails.application.secrets.google_api_key}"
+      # p geoAPI
+      # response = HTTParty.get(geoAPI)
+      # p "*"*80
+      # p response
+      # p longitude = response["results"][0]["geometry"]["location"]["lng"]
+      # p latitude = response["results"][0]["geometry"]["location"]["lat"]
+      # [latitude, longitude]
 
+
+    location = Geocoder.search(address_string)
+    [location[0].latitude, location[0].longitude]
   end
 
 end
+
+#https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+
