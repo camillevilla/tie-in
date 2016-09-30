@@ -208,7 +208,7 @@ regina.save
   name: "Morning Poolside Yoga",
   description: "Let's center ourselves before a day of staring at our screens.",
   start_time: DateTime.new(2016,10,21,6,30),
-  end_time: DateTime.new(2016,10,21,7,30),
+  end_time: DateTime.new(2016,10,21,9,30),
   location_id: 2,
   privacy: false
   )
@@ -232,3 +232,33 @@ regina.save
   Event.find(2).users << gretchen
   Event.find(2).users << fabio
   Event.find(2).save
+
+  #winedown
+  wine_down = Event.create(
+  trip_id: 1,
+  creator_id: 2,
+  name: "Wine Down",
+  description: "Winedown winedown winedown!",
+  start_time: DateTime.new(2016,10,21,10,30),
+  end_time: DateTime.new(2016,10,21,13,30),
+  location_id: 1,
+  privacy: false
+  )
+
+  Event.find(3).users << gretchen
+  Event.find(3)
+
+  #karaoke
+  karaoke = Event.create(
+  trip_id: 1,
+  creator_id: 1,
+  name: "Karaoke",
+  description: "You know the drill.",
+  start_time: DateTime.new(2016,10,21,8,30),
+  end_time: DateTime.new(2016,10,21,10,30),
+  location_id: 2,
+  privacy: false
+  )
+
+  Event.find(3).users << gretchen
+  Event.find(3)
