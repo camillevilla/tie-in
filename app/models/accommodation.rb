@@ -3,4 +3,12 @@ class Accommodation < ApplicationRecord
   belongs_to :trip
   belongs_to :location
   belongs_to :creator, class_name: "User"
+
+  def location_json
+    {
+      name: name,
+      coordinates: location.coordinates
+    }
+  end
+
 end
