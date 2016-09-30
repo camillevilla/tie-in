@@ -10,7 +10,7 @@
 
   <div>
     <h3 class="brand-orange-light">trip name</h3>
-    <p class="description"><%= @trip.name %></p>
+    <p class="description"><%= link_to @trip.name, trip_path(@trip) %></p>
   </div>
 
   <div>

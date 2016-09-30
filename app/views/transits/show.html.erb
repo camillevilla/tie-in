@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Transportation</h1>
 
-  <h2><%= @trip.name %></h2>
+  <h2><%= link_to @trip.name, trip_path(@trip) %></h2>
 
    <div class="transit">
       <p><%= @transit.transit_type %><br />
