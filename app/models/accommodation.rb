@@ -6,7 +6,7 @@ class Accommodation < ApplicationRecord
 
   def location_json
     {
-      name: name,
+      name: location.name,
       coordinates: location.coordinates
     }
   end
