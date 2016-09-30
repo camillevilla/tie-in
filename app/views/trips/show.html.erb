@@ -6,7 +6,7 @@
     <h3 class="brand-orange-light">trip overview</h3>
     <span class="description">dates: <%=short_date(@trip.start_date)%> - <%=short_date(@trip.end_date)%></span><br>
     <% if @trip.creator_id == @user.id %>
-    <span class="description">location: <%=@trip.location.name%></span><br>
+    <span class="description">location: <%=@trip.location.city%>, <%=@trip.location.state%></span><br>
     <a href="/trips/<%= @trip.id %>/edit">Edit</a>
     <% end %>
   </div>

@@ -30,11 +30,16 @@
       <div class="box panel panel-default">
         <div class="panel-body">
           <h4><a href="#"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> invite a friend</a></h4>
+        </div>
+      </div>
       <% end %>
       <% if !@event.users.include?(current_user) %>
+      <div class="box panel panel-default">
+        <div class="panel-body">
           <h4><a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/join"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> join this event</a></h4>
-      <% end %>
         </div>
+      </div>
+      <% end %>
       </div>
     </div>
   </div>
