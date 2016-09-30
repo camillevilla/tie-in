@@ -13,4 +13,12 @@ class Event < ApplicationRecord
   #   accepted_invitations = event_invitations.select { |invitation| invitation.accepted }
   #   accepted_invitations.map { |invitation| invitation.recipient_id }
   # end
+
+  def location_json
+    {
+      name: name,
+      coordinates: location.coordinates
+    }
+  end
+
 end

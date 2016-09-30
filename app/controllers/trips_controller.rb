@@ -59,6 +59,16 @@ class TripsController < ApplicationController
     @users = @trip.users
   end
 
+  def location_json
+    @trip = Trip.find(params[:id])
+    render json: @trip.all_locations_json
+  end
+
+  def map
+    @trip = Trip.find(params[:id])
+    @key = Rails.application.secrets.google_api_key
+  end
+
   def find_event
     @event = Event.find(params[:id])
     @trip = @event.trip

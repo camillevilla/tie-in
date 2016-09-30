@@ -1,7 +1,7 @@
 class AccommodationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
-  include ApplicationHelper
+     
   include AccommodationHelper
 
   def index
@@ -10,7 +10,6 @@ class AccommodationsController < ApplicationController
       @trip = Trip.find(params[:trip_id])
       @accommodations = @trip.accommodations
     end
-
   end
 
   def show
