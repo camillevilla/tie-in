@@ -1,6 +1,6 @@
 <div class="container">
   <div id="mytrips" class="jumbotron">
-    <h1 class="brand-yellow"><%= @trip.name %></h1>
+    <h1 class="brand-yellow"><%= link_to @trip.name, trip_path(@trip) %></h1>
   </div>
   <div>
     <p class="description">Invitation sent to <%= @friend.first_name %> <%= @friend.last_name %></p>

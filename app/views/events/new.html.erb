@@ -2,7 +2,7 @@
   <div class="rows">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2 class="brand-light-blue"><%=@trip.name%></h2>
+        <h2 class="brand-light-blue"><%= link_to @trip.name, trip_path(@trip) %></h2>
         <h3 class="brand-orange-light">Add new event</h3>
       </div>
 

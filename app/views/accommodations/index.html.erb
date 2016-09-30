@@ -9,8 +9,8 @@
       <% @accommodations.each do |accommodation| %>
       <div class="box panel panel-default">
         <div class="panel-body">
-         <h4><%= accommodation.creator.first_name %></h4>
-          <span class="description"><%= accommodation.location.name %></span>
+         <h4><%= link_to (accommodation.location.name), trip_accommodation_path(@trip,accommodation) %></h4>
+          <span class="description"><%= accommodation.creator.first_name %></span>
          </div>
        </div>
         <% end %>

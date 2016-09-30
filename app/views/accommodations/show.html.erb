@@ -28,7 +28,7 @@
     <br>
     <% if current_user %>
       <% if @accommodation.creator_id == current_user.id %>
-        <button class="btn"><%= link_to "Edit", trip_accommodation_path(@trip,@accommodation) %></button>
+        <button class="btn"><%= link_to "Edit", edit_trip_accommodation_path(@trip,@accommodation) %></button>
     <!-- add Delete button later -->
       <% end %>
     <% end %>
