@@ -61,7 +61,7 @@ class TripsController < ApplicationController
 
   def location_json
     @trip = Trip.find(params[:id])
-    render json: @trip.location_json
+    render json: @trip.all_locations_json
   end
 
   def map

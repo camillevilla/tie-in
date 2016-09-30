@@ -45,8 +45,20 @@ class Trip < ApplicationRecord
   end
 
   def location_json
-    location.coordinates
-
+    {
+      name: name,
+      coordinates: location.coordinates
+    }
   end
 
+  def all_locations_json
+    location_array = [location_json]
+    accommodations.each do |accommodation|
+      location_array << accommodation.location_json
+    end
+    events.each do |event|
+      location_array << event.location_json
+    end
+    location_array
+  end
 end

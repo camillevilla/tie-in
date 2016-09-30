@@ -1,4 +1,3 @@
-
 <body>
   <style>
       html, body {
@@ -11,30 +10,63 @@
         width: 400px;
       }
     </style>
+
+    <h1><%= @trip.name %></h1>
     <div id="map"></div>
     <div class="trip-data" id="<%= @trip.id %>"></div>
+
     <script>
       var tripId = $(".trip-data").attr("id");
       var latitude=35;
       var longitude=-97;
+      var name;
       var map;
+      var locationData;
       const URL = "http://localhost:3000/trips/" + tripId
       $(document).ready(function () {
         getData();
       });
+
+      // Call google maps
       function initMap() {
+        var myLatLng = {lat: latitude, lng: longitude};
+
+        // display map
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: latitude, lng: longitude},
-          zoom: 8
+          center: myLatLng,
+          zoom: 13
         });
+
+        // add marker
+        for (var i=0; i<locationData.length; i++) {
+          console.log(i);
+          var curData=locationData[i];
+          var curCoordinates = curData["coordinates"];
+          var curName = curData["name"];
+          var curLatitude = curCoordinates[0];
+          var curLongitude = curCoordinates[1];
+          var curLatLng = {lat: curLatitude, lng: curLongitude};
+          var marker = new google.maps.Marker({
+            position: curLatLng,
+            map: map,
+            title: curName
+          });
+        }
       }
+
+      // Get location data from server
       function getData() {
         $.ajax({
           url: URL + "/location_json",
           dataType: 'json',
           success: function(data) {
-            latitude = data[0];
-            longitude = data[1];
+            console.log(data);
+            locationData=data;
+            trip_data=data[0];
+            coordinates = trip_data["coordinates"];
+            name = trip_data["name"];
+            latitude = coordinates[0];
+            longitude = coordinates[1];
             initMap();
 
           }.bind(this),      // makes sure 'this' continues to be the correct object inside the callback
