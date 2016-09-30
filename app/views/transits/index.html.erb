@@ -1,15 +1,17 @@
-<h1>Transportation: <%= link_to @trip.name, trip_path(@trip) %></h1>
-<%= link_to 'Add New Details', new_trip_transit_path(@trip)%>
-<ul>
-<% @transits.each do |transit| %>
-	<li>
-    <% transit.users.each do |attendee| %>
-      <%= attendee.first_name %> <%= attendee.last_name %><br />
-    <% end %>
-    <%= transit.airline %> <%= transit.flight_number %><br />
-    <%= transit.origin %> | <%= pretty_date(transit.start_time) %><br />
-    <%= transit.destination %> | <%= pretty_date(transit.end_time) %><br />
-    <%= link_to 'Edit' %> | <%= link_to 'Delete' %>
-  </li>
-<% end %>
-</ul>
+<div class="container">
+  <h1>Transportation: <%= link_to @trip.name, trip_path(@trip) %></h1>
+  <%= link_to 'Add New Details', new_trip_transit_path(@trip)%>
+  <ul>
+  <% @transits.each do |transit| %>
+  	<li>
+      <% transit.users.each do |attendee| %>
+        <%= attendee.first_name %> <%= attendee.last_name %><br />
+      <% end %>
+      <%= transit.airline %> <%= transit.flight_number %><br />
+      <%= transit.origin %> | <%= pretty_date(transit.start_time) %><br />
+      <%= transit.destination %> | <%= pretty_date(transit.end_time) %><br />
+      <%= link_to 'Edit' %> | <%= link_to 'Delete' %>
+    </li>
+  <% end %>
+  </ul>
+</div>
