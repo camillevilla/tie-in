@@ -33,12 +33,11 @@
           </div>
 
           <div class="form-group">
-            <!-- Add partial form for new location once location table is ready -->
-            <%= f.label :location_id %>
-            <%= f.number_field :location_id %>
+            <div>Location:</div>
+            <%= render partial: "locations/edit", locals: {current_location: @event.location} %>
           </div>
           <div class="actions">
-            <%= f.submit "edit" %>
+            <%= f.submit "Submit changes" %>
           </div>
           <% end %>
         </div>

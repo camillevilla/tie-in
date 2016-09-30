@@ -5,6 +5,13 @@
 <!--   <script src="d3-timeline.js"></script> -->
 
   <style type="text/css">
+
+    svg {
+      padding: 10px;
+      border: 1px solid black;
+      margin-left: 20px;
+    }
+
     .axis path,
     .axis line {
       fill: none;
@@ -24,14 +31,6 @@
       margin-right: 50;
     }
 
-    #timeline2 .axis {
-      transform: translate(0px,40px);
-      -ms-transform: translate(0px,40px); /* IE 9 */
-      -webkit-transform: translate(0px,40px); /* Safari and Chrome */
-      -o-transform: translate(0px,40px); /* Opera */
-      -moz-transform: translate(0px,40px); /* Firefox */
-    }
-
     .coloredDiv {
       height:20px; width:20px; float:left;
     }
@@ -41,7 +40,7 @@
 <body>
 
   <div>
-    <h3>A stacked timeline with hover, click, and scroll events</h3>
+    <h1><%= @trip.name %></h1>
     <br>
     <div id="timeline3"></div>
     <div id="hoverRes">
