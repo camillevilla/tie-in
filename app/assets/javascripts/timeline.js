@@ -12,15 +12,15 @@ $(document).ready(function () {
       .itemHeight(20)
       .stack()
       .margin({left:70, right:30, top:0, bottom:0})
-      .hover(function (d, i, datum) {
-      // d is the current rendering object
-      // i is the index during d3 rendering
-      // datum is the id object
-        var div = $('#hoverRes');
-        var colors = chart.colors();
-        div.find('.coloredDiv').css('background-color', colors(i))
-        div.find('#name').text(datum.label + ": " + d.label);
-      })
+      // .hover(function (d, i, datum) {
+      // // d is the current rendering object
+      // // i is the index during d3 rendering
+      // // datum is the id object
+      //   var div = $('#hoverRes');
+      //   var colors = chart.colors();
+      //   div.find('.coloredDiv').css('background-color', colors(i))
+      //   div.find('#name').text(datum.label + ": " + d.label);
+      // })
       .click(function (d, i, datum) {
         console.log(datum);
         console.log(d.id);
