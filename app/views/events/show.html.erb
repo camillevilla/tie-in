@@ -1,13 +1,15 @@
 <div class="container">
   <div id="mytrips" class="jumbotron">
-    <h1 class="brand-yellow"><%= @trip.name %></h1>
-    <h2 class="brand-orange"><%= @event.name %></h2>
+    <h1 class="brand-yellow"><%= link_to @trip.name, trip_path(@trip) %></h1>
+    <h2 class="brand-orange"><%= link_to @event.name, event_path(@event) %></h2>
   </div>
   <div>
     <h3 class="brand-orange-light">event overview</h3>
     <span class="description"><%=short_date(@event.start_time)%> starting at  <%=short_time(@event.start_time)%> until <%=short_time(@event.end_time)%><br>
     <%=@event.location.name%><br></span>
+    <% if @event.creator_id == current_user.id %>
     <a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/edit">Edit</a>
+    <% end %>
   </div>
   <div>
     <h3 class="brand-orange-light">trip description</h3>
@@ -24,17 +26,18 @@
           </div>
         </div>
       <% end %>
+      <% if @event.creator_id == current_user.id %>
       <div class="box panel panel-default">
         <div class="panel-body">
-          <% if @event.creator_id == current_user.id %>
           <h4><a href="#"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> invite a friend</a></h4>
-          <% end %>
-          <% if !@event.users.include?(current_user) %>
+      <% end %>
+      <% if !@event.users.include?(current_user) %>
           <h4><a href="/trips/<%= @trip.id %>/events/<%= @event.id %>/join"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> join this event</a></h4>
-          <% end %>
+      <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
