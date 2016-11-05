@@ -5,7 +5,7 @@
 > an application that removes all the logistical hassle from group travel so that everyone can Tie-In!
 
 </div>
-[![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in) *Continuous Integration with TravisCI*
+[![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in) *Continuous Integration with [TravisCI](https://travis-ci.org/camillevilla/tie-in)*
 
 ## Problem
 
@@ -25,7 +25,14 @@ Tie-In is a mobile first application that allows users to create trips, invite p
 ## In Action
 <div style="text-align:center" markdown="1">
 ![Tie-In - web view](./app/assets/images/demo_gif.gif)
+*Figure 1*. Web View
+
 ![Tie-In - mobile view](./app/assets/images/mobileview_gif.gif)
+*Figure 2*. Mobile View
+
+![Tie-In - mobile view](./app/assets/images/responsive.gif)
+*Figure 3*. Responsive View
+
 </div>
 
 ## Contributors
