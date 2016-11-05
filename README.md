@@ -1,12 +1,17 @@
 
 # Tie-In
+[![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in)
+![tie-in](/app/assets/images/tie-in-mainpage.png)
 > an app that removes all the logistical hassle from group travel so that everyone can Tie-In!
 
-[![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in)
+
 
 I have a group of friends.  We travel around the world to run marathons.  We have a problem.  It’s not the running, it’s the planning.  Who is coming in when?  Where is everyone staying?  Who wants to do what while we are there?
 
-Enter…Tie-In.  Tie-In is a mobile first application that allows users to create trips, invite people on those trips, and view everyone’s details.  How great would it be to have everyone’s trip itinerary details available in the palm of your hand so that you can invite people to join you for lunch, plan a meeting spot for dinner, or just coordinate arrangements to and from the airport?  Tie-In allows you to update all of your travel itinerary information, create events inside the trip, and view all of those details for everyone in the group.
+Enter…Tie-In.
+Tie-In is a mobile first application that allows users to create trips, invite people on those trips, and view everyone’s details.  How great would it be to have everyone’s trip itinerary details available in the palm of your hand so that you can invite people to join you for lunch, plan a meeting spot for dinner, or just coordinate arrangements to and from the airport?  Tie-In allows you to update all of your travel itinerary information, create events inside the trip, and view all of those details for everyone in the group.
+
+
 
 
 ## Contributors
