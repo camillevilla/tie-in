@@ -1,28 +1,46 @@
-
 # Tie-In
-[![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in)
-![tie-in](/app/assets/images/tie-in-mainpage.png)
-> an app that removes all the logistical hassle from group travel so that everyone can Tie-In!
+<div style="text-align:center" markdown="1">
 
+![tie-in](./app/assets/images/tie-in-mainpage.png)
+> an application that removes all the logistical hassle from group travel so that everyone can Tie-In!
 
+</div>
+[![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in) *Continuous Integration with TravisCI*
+
+## Problem
 
 I have a group of friends.  We travel around the world to run marathons.  We have a problem.  It’s not the running, it’s the planning.  Who is coming in when?  Where is everyone staying?  Who wants to do what while we are there?
+
+## Solution
 
 Enter…Tie-In.
 Tie-In is a mobile first application that allows users to create trips, invite people on those trips, and view everyone’s details.  How great would it be to have everyone’s trip itinerary details available in the palm of your hand so that you can invite people to join you for lunch, plan a meeting spot for dinner, or just coordinate arrangements to and from the airport?  Tie-In allows you to update all of your travel itinerary information, create events inside the trip, and view all of those details for everyone in the group.
 
+## Built With
 
+* Ruby on Rails
+* JavaScript with jQuery, ajax and d3.js
+* HTML/CSS and Bootstrap
 
+## In Action
 
 ## Contributors
 - [Nicholas Davidson](https://github.com/ndavidsonsf)
-- [David Ross](https://github.com/rustyross101)
-- [Jeff Roy](https://github.com/jeffreyroy)
 - [Camille Villa](https://github.com/camillevilla)
+- [Jeff Roy](https://github.com/jeffreyroy)
+- [David Ross](https://github.com/rustyross101)
 
-## User Stories
+## Contributing
 
-### MVP
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+
+This project is licensed under the General Public License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+## User Stories & Next Steps
+#### MVP
 
 - As a trip creator, I can create a new trip, which has a time frame and a location
 - As a trip creator, I can invite trip participants to join a trip
@@ -46,7 +64,7 @@ Tie-In is a mobile first application that allows users to create trips, invite p
 - As a trip participant, I can view a trip's events on a timeline
 
 
-### Stretch
+#### Stretch
 
 - As a trip participant, I can look up flights to book
 - As a trip participant, I can toggle participants' availability on the timeline
