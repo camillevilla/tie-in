@@ -1,5 +1,5 @@
 
-![tie-in](/app/assets/images/tiein_braid150_152.png)
+![tie-in](/app/assets/images/Tiein_braid150_152.png)
 # Tie-In
 [http://tie-in.herokuapp.com](http://tie-in.herokuapp.com)
 
