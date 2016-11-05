@@ -23,6 +23,10 @@ Tie-In is a mobile first application that allows users to create trips, invite p
 * HTML/CSS and Bootstrap
 
 ## In Action
+<div style="text-align:center" markdown="1">
+![Tie-In - web view](./app/assets/images/demo_gif.gif)
+![Tie-In - mobile view](./app/assets/images/mobileview_gif.gif)
+</div>
 
 ## Contributors
 - [Nicholas Davidson](https://github.com/ndavidsonsf)
