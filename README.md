@@ -1,4 +1,4 @@
-<div style="text-align:center" markdown="1">
+
 ![tie-in](/app/assets/images/tiein_braid150_152.png)
 # Tie-In
 [http://tie-in.herokuapp.com](http://tie-in.herokuapp.com)
@@ -6,7 +6,7 @@
 ![tie-in](/app/assets/images/tie-in-mainpage.png)
 > an application that removes all the logistical hassle from group travel so that everyone can Tie-In!
 
-</div>
+
 [![Build Status](https://travis-ci.org/camillevilla/tie-in.svg?branch=development)](https://travis-ci.org/camillevilla/tie-in) *Continuous Integration with [TravisCI](https://travis-ci.org/camillevilla/tie-in)*
 
 ## Problem
@@ -25,7 +25,7 @@ Tie-In is a mobile first application that allows users to create trips, invite p
 * HTML/CSS and Bootstrap
 
 ## In Action
-<div style="text-align:center" markdown="1">
+
 ![Tie-In - web view](/app/assets/images/demo_gif.gif)
 *Figure 1*. Web View
 
@@ -35,7 +35,6 @@ Tie-In is a mobile first application that allows users to create trips, invite p
 ![Tie-In - mobile view](/app/assets/images/responsive.gif)
 *Figure 3*. Responsive View
 
-</div>
 
 ## Contributors
 - [Nicholas Davidson](https://github.com/ndavidsonsf)
