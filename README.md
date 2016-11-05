@@ -1,6 +1,7 @@
 <div style="text-align:center" markdown="1">
 ![tie-in](./app/assets/images/tiein_braid150_152.png)
 # Tie-In
+[http://tie-in.herokuapp.com](http://tie-in.herokuapp.com)
 
 ![tie-in](./app/assets/images/tie-in-mainpage.png)
 > an application that removes all the logistical hassle from group travel so that everyone can Tie-In!
